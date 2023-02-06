@@ -74,7 +74,7 @@ function Dog({ render }) {
                                         Add
                                     </button>
                                 </div>
-                                <span>{item.description}</span>
+
                                 <h1>{item.title}</h1>
                                 <p>
                                     {item.price}
