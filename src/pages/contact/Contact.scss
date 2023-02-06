@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contact {
+    background: url('../../asset/image/banner-contact.jpg') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 120vh;
+    padding-top: 70px;
+
+    .container {
+        max-width: 1200px;
+        min-height: 680px;
+        margin: 0px auto;
+        display: flex;
+
+        .contact-left {
+            width: 50%;
+
+            background-color: rgba(52, 74, 95, 0.74);
+            padding: 60px 30px 60px 30px;
+
+            .contact-left-header {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+
+                .contact-left-header-img {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                h1 {
+                    color: #fff;
+                    font-size: 35px;
+                    font-weight: 500;
+                }
+
+                img {
+                    width: 120px;
+                }
+            }
+
+            .contact-left-content {
+                margin: 50px 0;
+
+                p {
+                    color: #fff;
+                    margin: 20px 0;
+                }
+            }
+
+            .contact-left-footer {
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+
+                .contact-left-footer-img {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                img {
+                    width: 120px;
+                }
+            }
+        }
+
+        .contact-right {
+            width: 50%;
+            background-color: rgba(255, 255, 255, 0.74);
+            padding: 120px 30px 60px 30px;
+
+            .contact-right-form {
+                form {
+                    input {
+                        width: 100%;
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        height: 100%;
+                        padding: 10px;
+                    }
+
+                    .contact-name {
+                        border: 1px solid #ddd;
+                        background-color: white;
+
+                        &:focus-within {
+                            outline: 2px solid #30b5b2;
+                            border-radius: 2px;
+                        }
+                    }
+
+                    .contact-email {
+                        border: 1px solid #ddd;
+                        background-color: white;
+                        margin: 20px 0;
+
+                        &:focus-within {
+                            outline: 2px solid #30b5b2;
+                            border-radius: 2px;
+                        }
+                    }
+
+                    .contact-phone {
+                        border: 1px solid #ddd;
+                        background-color: white;
+
+                        &:focus-within {
+                            outline: 2px solid #30b5b2;
+                            border-radius: 2px;
+                        }
+                    }
+
+                    textarea {
+                        max-width: 100%;
+                        background-color: white;
+                        padding: 10px;
+                        margin: 20px 0;
+                        outline: none;
+                        border: 1px solid #ddd;
+                        color: gray;
+
+                        &:focus-within {
+                            outline: 2px solid #30b5b2;
+                            border-radius: 2px;
+                        }
+                    }
+
+                    .contact-btn {
+                        display: flex;
+
+                        justify-content: center;
+
+                        .contact-submit {
+                            width: 170px;
+                            border: 1px solid black;
+                            text-align: center;
+                            padding: 5px;
+                            background-color: #30b5b2;
+                            border: none;
+
+                            &:hover {
+                                background-color: #26918e;
+                            }
+
+                            span {
+                                font-size: 20px;
+                                font-weight: 600;
+                                color: white;
+                            }
+
+                            &:focus-within {
+                                outline: 3px solid #26918e;
+                                border-radius: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

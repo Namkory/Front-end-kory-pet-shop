@@ -1,0 +1,99 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+
+    .intro-header {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        margin: 30px 0;
+
+        .intro-header-img {
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 35px;
+            font-weight: 600;
+        }
+
+        img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+        }
+    }
+
+    .intro-content-banner {
+        background: url('../../asset/image/banner-intro.jpg') no-repeat center center;
+        width: 100%;
+        height: 306px;
+        background-size: cover;
+        margin-bottom: 40px;
+    }
+
+    .intro-content {
+        .intro-content-item {
+            min-height: 300px;
+
+            text-align: center;
+
+            .intro-content-item-header {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                margin: 0 auto;
+                position: relative;
+
+                &:hover {
+                    outline: 2px solid #30b5b2;
+                }
+
+                .icon {
+                    font-size: 35px;
+                    position: absolute;
+                    top: 14%;
+                    right: 14%;
+                    color: #30b5b2;
+                }
+            }
+
+            h3 {
+                font-size: 20px;
+                font-weight: 600;
+                margin: 20px 0;
+            }
+
+            .intro-content-item-btn {
+                display: flex;
+                margin: 50px 0;
+
+                .btn {
+                    margin: 0 auto;
+                    padding: 5px;
+                    border-radius: 15px;
+                    background-color: #30b5b2;
+                    width: 145px;
+                    height: 50px;
+
+                    &:hover {
+                        outline: 2px solid #5ce2df;
+                        background-color: #5ce2df;
+                        transform: translateY(-5%);
+                        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                    }
+
+                    span {
+                        color: white;
+                        font-size: 18px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}
