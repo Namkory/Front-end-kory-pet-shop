@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBagShopping, faDeleteLeft, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faDeleteLeft, faSearch, faUserSlash } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import React from 'react';
 import Tippy from '@tippyjs/react/headless'; // different import path!
@@ -13,15 +13,11 @@ import ModalLogin from '../Modal/ModalLogin';
 
 function Header() {
     const productStorage = JSON.parse(localStorage.getItem('products'));
+    const localUserInfor = localStorage.getItem('userName');
 
     const [state, setState] = useState(0);
-
     const [active, setActive] = useState(0);
     const [openModal, setOpenModal] = useState(false);
-
-    const toggle = () => {
-        setOpenModal(!openModal);
-    };
 
     const [visible, setVisible] = useState(false);
     const show = () => setVisible(true);
@@ -54,6 +50,11 @@ function Header() {
 
             return total;
         }
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('userName');
+        setState(state - 1);
     };
 
     return (
@@ -147,14 +148,19 @@ function Header() {
                             <FontAwesomeIcon icon={faSearch} />
                         </div>
 
-                        <div
-                            className="header-container-right-item i1"
-                            onClick={() => {
-                                toggle();
-                            }}
-                        >
-                            <FontAwesomeIcon icon={faUser} />
-                        </div>
+                        {localUserInfor == null ? (
+                            <Link to="/login">
+                                <div className="header-container-right-item i1 userslash">
+                                    <FontAwesomeIcon icon={faUser} />
+                                    <p className="log">Log in</p>
+                                </div>
+                            </Link>
+                        ) : (
+                            <div className="header-container-right-item i1 user" onClick={handleLogout}>
+                                <FontAwesomeIcon icon={faUserSlash} />
+                                <p className="log">Log out</p>
+                            </div>
+                        )}
 
                         <Tippy
                             interactive

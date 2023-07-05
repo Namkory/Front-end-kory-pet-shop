@@ -2,9 +2,11 @@ import './ProductDetail.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import images from '../../asset/image';
 
 function ProductDetail() {
+    const [quantity, setQuantity] = useState(1);
+    const localProductDetail = JSON.parse(localStorage.getItem('productDetail'));
+    console.log('check localProductDetail', localProductDetail);
     const [productDetails, setProductDetails] = useState([]);
 
     useEffect(() => {
@@ -16,6 +18,50 @@ function ProductDetail() {
 
         getAllProductDetails();
     }, []);
+
+    const handleUpdateQuantity = (action) => {
+        if (action === 'increase') {
+            setQuantity(quantity + 1);
+        } else if (action === 'decrease') {
+            if (quantity > 1) {
+                setQuantity(quantity - 1);
+            }
+        }
+    };
+
+    const handleAddNewProduct = async (data) => {
+        const dataLocal = await JSON.parse(localStorage.getItem('products'));
+        if (dataLocal) {
+            //localstorage ton tai 1 san pham
+            const exits = dataLocal.find((item) => {
+                return item.id === data.id;
+            });
+            if (exits) {
+                dataLocal.forEach((item) => {
+                    if (item.id === data.id) {
+                        return (item.quantity = item.quantity + quantity);
+                    }
+                });
+                localStorage.setItem('products', JSON.stringify(dataLocal));
+            } else {
+                localStorage.setItem(
+                    'products',
+                    JSON.stringify([
+                        ...dataLocal,
+                        { id: data.id, name: data.title, image: data.image, quantity: quantity, price: data.price },
+                    ]),
+                );
+            }
+        } else {
+            //add new
+            localStorage.setItem(
+                'products',
+                JSON.stringify([
+                    { id: data.id, name: data.title, image: data.image, quantity: quantity, price: data.price },
+                ]),
+            );
+        }
+    };
 
     return (
         <div className="productDetail">
@@ -41,35 +87,50 @@ function ProductDetail() {
                         })}
                     </div>
                 </div>
-                <div className="productDetail-right grid grid-cols-2 gap-x-6">
-                    <div className="productDetail-right-img">
-                        <img src={images.golden} alt="golden" />
-                    </div>
-                    <div className="productDetail-right-infor">
-                        <div className="productDetail-right-header">
-                            <Link to="/">
-                                <h1 className="productDetail-right-header-home">TRANG CHỦ</h1>
-                            </Link>
-                            <span>/</span>
-                            <h1 className="productDetail-right-header-dog">CHÓ CẢNH</h1>
-                        </div>
-                        <div className="productDetail-right-title">
-                            <h1>Chó Golden</h1>
-                        </div>
-                        <h1>6,870,000đ</h1>
-                        <p>
-                            Sang tháng 4 sẽ cho xuất chuồng đàn Golden siêu cute cả nhà nhé. Đàn này được cái mặt bé nào
-                            cũng ngộ nghĩnh đáng yêu lắm, mọi người cứ nhìn ảnh là sẽ biết ạ
-                        </p>
-                        <div className="productDetail-right-infor-footer">
-                            <div className="productDetail-right-infor-footer-quantity">
-                                <input type="number" step="1" min="0" max="9999" placeholder="1" />
+                <div className="productDetail-right">
+                    {localProductDetail.map((item, index) => {
+                        return (
+                            <div key={index} className="wrapper-right-productDetail">
+                                <div className="productDetail-right-img">
+                                    <img src={item.image} alt="golden" />
+                                </div>
+                                <div className="productDetail-right-infor">
+                                    <div className="productDetail-right-header">
+                                        <Link to="/">
+                                            <h1 className="productDetail-right-header-home">TRANG CHỦ</h1>
+                                        </Link>
+                                        <span>/</span>
+                                        <h1 className="productDetail-right-header-dog">CHÓ CẢNH</h1>
+                                    </div>
+                                    <div className="productDetail-right-title">
+                                        <h1>{item.name}</h1>
+                                    </div>
+                                    <h1>{item.price}đ</h1>
+                                    <p>{item.description}</p>
+                                    <div className="productDetail-right-infor-footer">
+                                        <div className="quantity-item">
+                                            <div
+                                                onClick={() => handleUpdateQuantity('increase')}
+                                                className="quantity-item-icon"
+                                            >
+                                                +
+                                            </div>
+                                            <p>{quantity}</p>
+                                            <div
+                                                onClick={() => handleUpdateQuantity('decrease')}
+                                                className="quantity-item-icon"
+                                            >
+                                                -
+                                            </div>
+                                        </div>
+                                        <div className="productDetail-right-infor-footer-btn">
+                                            <p onClick={() => handleAddNewProduct(item)}>THÊM VÀO GIỎ </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="productDetail-right-infor-footer-btn">
-                                <p>THÊM VÀO GIỎ </p>
-                            </div>
-                        </div>
-                    </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

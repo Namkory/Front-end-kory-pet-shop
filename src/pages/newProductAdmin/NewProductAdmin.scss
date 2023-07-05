@@ -1,0 +1,82 @@
+.newproduct {
+    .newproduct-header,
+    .newproduct-content {
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        padding: 10px;
+        margin: 20px;
+        border-radius: 15px;
+    }
+
+    .newproduct-header {
+        h1 {
+            // color: lightgray;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+
+    .newproduct-content {
+        display: flex;
+        padding: 30px;
+
+        .newproduct-content-left {
+            flex: 1;
+
+            img {
+                margin: 0 auto;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+
+        .newproduct-content-right {
+            flex: 2;
+
+            form {
+                .form-input {
+                    width: 100%;
+
+                    label {
+                        .icon {
+                            color: #349eff;
+                            cursor: pointer;
+                            font-size: 20px;
+                            margin-left: 10px;
+                        }
+                    }
+
+                    input,
+                    select,
+                    option,
+                    textarea {
+                        width: 100%;
+                        padding: 5px;
+                        border: none;
+                        border-bottom: 1px solid gray;
+                        outline: none;
+                    }
+                }
+
+                .btn {
+                    margin: 0 auto;
+                    width: 150px;
+                    background-color: #349eff;
+                    border-radius: 15px;
+                    color: white;
+                    height: 50px;
+                    font-weight: 600;
+                    font-size: 18px;
+                    padding: 10px;
+
+                    &:hover {
+                        background-color: #0580f1;
+                        outline: 2px solid #349eff;
+                    }
+                }
+            }
+        }
+    }
+}

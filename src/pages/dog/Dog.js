@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { handleAddProduct } from '../../util';
+import { handleGetDetail } from '../../util';
 
 function Dog({ render }) {
     const [dogs, setDogs] = useState([]);
@@ -73,6 +74,17 @@ function Dog({ render }) {
                                     >
                                         Add
                                     </button>
+                                </div>
+                                <div className="btn-detail">
+                                    <Link to="/productDetail">
+                                        <button
+                                            onClick={() => handleGetDetail(item, render())}
+                                            type="button"
+                                            className="btn"
+                                        >
+                                            Detail
+                                        </button>
+                                    </Link>
                                 </div>
                                 <span>Chó cảnh</span>
                                 <h1>{item.title}</h1>

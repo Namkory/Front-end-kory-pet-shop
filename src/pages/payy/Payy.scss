@@ -58,13 +58,34 @@
                 .pay-container-left-item {
                     margin-bottom: 20px;
                 }
+
+                .pay-container-right-inner-order {
+                    width: 120px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: #30b5b2;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: #2e9f9c;
+                    }
+
+                    button {
+                        font-size: 16px;
+                        font-weight: 600;
+                        color: white;
+                    }
+                }
             }
         }
 
         .pay-container-right {
             flex: 4;
+            display: block;
             border: 2px solid #30b5b2;
-            height: 540px;
+            height: 100%;
             padding: 30px;
 
             .pay-container-right-inner {
@@ -135,27 +156,6 @@
 
                 .pay-container-right-inner-text {
                     color: #30b5b2;
-                    margin-bottom: 20px;
-                }
-
-                .pay-container-right-inner-order {
-                    width: 120px;
-                    height: 40px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: #30b5b2;
-                    cursor: pointer;
-
-                    &:hover {
-                        background-color: #2e9f9c;
-                    }
-
-                    p {
-                        font-size: 16px;
-                        font-weight: 600;
-                        color: white;
-                    }
                 }
             }
         }

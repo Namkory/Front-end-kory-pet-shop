@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { handleAddProduct } from '../../util';
+import { handleGetDetail } from '../../util';
 
 function Cat({ render }) {
     const [cats, setCats] = useState([]);
@@ -73,6 +74,17 @@ function Cat({ render }) {
                                     >
                                         Add
                                     </button>
+                                </div>
+                                <div className="btn-detail">
+                                    <Link to="/productDetail">
+                                        <button
+                                            onClick={() => handleGetDetail(item, render())}
+                                            type="button"
+                                            className="btn"
+                                        >
+                                            Detail
+                                        </button>
+                                    </Link>
                                 </div>
                                 <span>Mèo cảnh</span>
                                 <h1>{item.title}</h1>

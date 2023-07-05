@@ -1,0 +1,15 @@
+.sidebar {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: 150vh;
+}
+
+.homeContainer {
+    background-color: #f7f7f9;
+
+    .navbar {
+        padding: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

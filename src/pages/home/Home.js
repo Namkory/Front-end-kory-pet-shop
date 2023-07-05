@@ -6,6 +6,8 @@ import { faGift, faPiggyBank, faRocket, faWallet } from '@fortawesome/free-solid
 import images from '../../asset/image';
 import axios from 'axios';
 import { handleAddProduct } from '../../util';
+import { handleGetDetail } from '../../util';
+import { Link } from 'react-router-dom';
 
 function Home({ render }) {
     const [dogs, setDogs] = useState([]);
@@ -108,6 +110,17 @@ function Home({ render }) {
                                         Add
                                     </button>
                                 </div>
+                                <div className="btn-detail">
+                                    <Link to="/productDetail">
+                                        <button
+                                            onClick={() => handleGetDetail(item, render())}
+                                            type="button"
+                                            className="btn"
+                                        >
+                                            Detail
+                                        </button>
+                                    </Link>
+                                </div>
                                 <h1>{item.title}</h1>
                                 <p>
                                     {item.price}
@@ -143,6 +156,17 @@ function Home({ render }) {
                                     <button onClick={() => handleAddProduct(item)} type="button" className="btn">
                                         Add
                                     </button>
+                                </div>
+                                <div className="btn-detail">
+                                    <Link to="/productDetail">
+                                        <button
+                                            onClick={() => handleGetDetail(item, render())}
+                                            type="button"
+                                            className="btn"
+                                        >
+                                            Detail
+                                        </button>
+                                    </Link>
                                 </div>
                                 <h1>{item.title}</h1>
                                 <p>
@@ -183,7 +207,17 @@ function Home({ render }) {
                                         Add
                                     </button>
                                 </div>
-
+                                <div className="btn-detail">
+                                    <Link to="/productDetail">
+                                        <button
+                                            onClick={() => handleGetDetail(item, render())}
+                                            type="button"
+                                            className="btn"
+                                        >
+                                            Detail
+                                        </button>
+                                    </Link>
+                                </div>
                                 <h1>{item.title}</h1>
                                 <p>
                                     {item.price}

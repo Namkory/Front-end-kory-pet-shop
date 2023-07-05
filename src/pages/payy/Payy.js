@@ -79,6 +79,9 @@ function Payy() {
                                         placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn."
                                     />
                                 </div>
+                                <div className="pay-container-right-inner-order">
+                                    <button type="submit">ĐẶT HÀNG</button>
+                                </div>
                             </form>
                         </div>
                         <div className="pay-container-right">
@@ -118,9 +121,9 @@ function Payy() {
                                     Cảm ơn quý khách đã tin tưởng và ủng hộ kory shop. Kính chúc quý khách có một ngày
                                     tốt lành. Nếu cần tư vấn bất kì điều gì xin hãy liên hệ với chúng tôi.
                                 </p>
-                                <div className="pay-container-right-inner-order">
+                                {/* <div className="pay-container-right-inner-order">
                                     <p>ĐẶT HÀNG</p>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

@@ -158,6 +158,29 @@
                     }
                 }
 
+                .btn-detail {
+                    position: absolute;
+                    left: 10px;
+                    top: 47%;
+                    width: 40px;
+                    height: 40px;
+                    background-color: rgba(48, 181, 178, 0.4);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    border-radius: 10px;
+
+                    &:hover {
+                        background-color: rgba(48, 181, 178, 0.9);
+                    }
+
+                    .btn {
+                        color: #fff;
+                        font-weight: 600;
+                    }
+                }
+
                 &:hover {
                     outline: 2px solid #30b5b2;
                     transform: translateY(-2%);

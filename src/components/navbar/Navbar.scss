@@ -1,0 +1,191 @@
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav-input {
+        position: relative;
+        height: 50px;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border-radius: 15px;
+        overflow: hidden;
+
+        input {
+            height: 100%;
+            width: 100%;
+            padding: 10px 60px 10px 20px;
+            font-size: 1rem;
+            border-radius: 15px;
+            color: #455560;
+            background-color: white;
+        }
+
+        .search-icon {
+            font-size: 20px;
+            position: absolute;
+            right: 20px;
+        }
+
+        &:focus-visible {
+            border: 1px solid #349eff;
+        }
+    }
+
+    .nav-right {
+        display: flex;
+
+        .tippy-infor {
+            width: 160px;
+
+            .menu-infor {
+                display: flex;
+                align-items: center;
+                padding: 20px;
+                cursor: pointer;
+
+                .menu-infor-icon {
+                    margin-right: 20px;
+                    color: #349eff;
+                    font-size: 1.5rem;
+                }
+
+                &:hover {
+                    background-color: #f8f8fa;
+                    color: #349eff;
+                }
+            }
+        }
+
+        .nav-infor {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            .avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 10px;
+                object-fit: cover;
+            }
+
+            .text {
+                display: block;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        }
+        .search-icon {
+            font-size: 2rem;
+            color: #349eff;
+            cursor: pointer;
+        }
+
+        .bell {
+            margin: 0 35px;
+        }
+    }
+}
+
+.tippy-bell {
+    width: 400px;
+
+    .menu-bell {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        cursor: pointer;
+
+        .menu-infor-icon {
+            margin-right: 20px;
+            color: #349eff;
+            font-size: 1.5rem;
+        }
+
+        &:hover {
+            background-color: #f8f8fa;
+            color: #349eff;
+        }
+    }
+
+    .menu-bell-footer {
+        text-align: center;
+        padding: 20px;
+        cursor: pointer;
+        font-size: 16px;
+
+        &:hover {
+            color: #349eff;
+        }
+    }
+}
+
+.tippy-theme {
+    width: 200px;
+    padding: 20px;
+    max-height: min((100hv - 96px) - 60px, 734px);
+    min-height: 100px;
+    border-radius: 15px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    .theme-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .theme-close {
+            font-size: 17px;
+            cursor: pointer;
+
+            &:hover {
+                color: #349eff;
+            }
+        }
+    }
+
+    .theme-mode {
+        margin-top: 20px;
+
+        span {
+            color: gray;
+        }
+
+        ul {
+            margin-top: 10px;
+
+            .mode-item {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                background-color: #fff;
+                color: #000;
+                margin: 5px 0;
+
+                .icon {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 10px;
+                    font-size: 1.5rem;
+                }
+
+                .light {
+                    color: white;
+                }
+
+                .dark {
+                    color: black;
+                }
+            }
+        }
+    }
+}

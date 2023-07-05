@@ -16,5 +16,8 @@ const images = {
     new_banner4: require('../image/new-banner4.png'),
     new_banner5: require('../image/new-banner5.png'),
     golden: require('../image/golden.jpg'),
+    noImageadmin: require('../image/logo1.png'),
+    avataradmin: require('../image/vatatar.jpg'),
+    noImage1admin: require('../image/no-image.jpg'),
 };
 export default images;

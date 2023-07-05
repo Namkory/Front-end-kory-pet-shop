@@ -30,3 +30,39 @@ export const handleAddProduct = async (data, render) => {
     }
     render();
 };
+
+export const handleGetDetail = async (data) => {
+    // console.log('check data', data);
+    const localProductDetail = JSON.parse(localStorage.getItem('productDetail'));
+    if (localProductDetail == null) {
+        localStorage.setItem(
+            'productDetail',
+            JSON.stringify([
+                {
+                    id: data.id,
+                    name: data.title,
+                    image: data.thumbnail,
+                    quantity: 1,
+                    price: data.price,
+                    description: data.description,
+                },
+            ]),
+        );
+    } else {
+        // Xóa item có tên là "myArrayData" trong localStorage
+        localStorage.removeItem('productDetail');
+        localStorage.setItem(
+            'productDetail',
+            JSON.stringify([
+                {
+                    id: data.id,
+                    name: data.title,
+                    image: data.thumbnail,
+                    quantity: 1,
+                    price: data.price,
+                    description: data.description,
+                },
+            ]),
+        );
+    }
+};
