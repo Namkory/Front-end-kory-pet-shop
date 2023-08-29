@@ -131,7 +131,7 @@ function Customers() {
                     <div className="btn-create-item">Create new user</div>
                 </Link>
             </div>
-            <Box sx={{ height: 700, width: '100%' }}>
+            <Box sx={{ height: 600, width: '100%' }}>
                 <DataGrid
                     sx={{ textAlign: 'center' }}
                     rows={rows}

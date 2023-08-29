@@ -1,54 +1,47 @@
 import './ShoppingCart.scss';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeftLong, faCheck, faTag, faTrash } from '@fortawesome/free-solid-svg-icons';
-
+import { faArrowLeftLong, faTag, faTrash } from '@fortawesome/free-solid-svg-icons';
+import '../../language/i18n';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import NoProduct from '../noProduct/NoProduct';
+import numeral from 'numeral';
 
 function ShoppingCart({ render }) {
     const productStorage = JSON.parse(localStorage.getItem('products'));
-
-    // const [ count, setCount] = useState(0)
+    const { t } = useTranslation();
     const [state, setState] = useState(0);
-
     const handleTotalProduct = (data) => {
         const arr = [];
-
         if (data && data.length > 0) {
             data.forEach((item) => {
                 arr.push(item.price * item.quantity);
             });
-
             const total = arr.reduce((a, b) => {
                 return a + b;
             });
-
-            return total;
+            const formattedTotal = numeral(total).format('0,0');
+            return formattedTotal;
         }
     };
-
     const handleTotalPrice1Item = (quantity, price) => {
         const sum = price * quantity;
-        return sum;
+        const formattedTotal = numeral(sum).format('0,0');
+        return formattedTotal;
     };
-
     const handleDeleteProduct = (id, index) => {
         let arr = [...productStorage];
         const exits = productStorage.find((product) => {
             return product.id === id;
         });
-
         if (exits) {
             arr = [...arr.slice(0, index), ...arr.slice(index + 1)];
             localStorage.setItem('products', JSON.stringify(arr));
             setState(state + 1);
         }
     };
-
     const handleUpdateQuantity = (action, id) => {
-        console.log('check id', id);
-
         let arr = [...productStorage];
         if (arr.length > 0) {
             arr.forEach((item, index) => {
@@ -66,7 +59,6 @@ function ShoppingCart({ render }) {
             });
             localStorage.setItem('products', JSON.stringify(arr));
         }
-
         setState(state + 1);
     };
 
@@ -76,18 +68,13 @@ function ShoppingCart({ render }) {
                 <div className="shoppingCart">
                     <div className="shoppingCart-container">
                         <div className="shoppingCart-left">
-                            {/* <div className="shoppingCart-noti">
-                            <FontAwesomeIcon icon={faCheck} className="icon" />
-                            <p>Giỏ hàng đã được cập nhật</p>
-                        </div> */}
-
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>SẢN PHẨM</th>
-                                        <th>GIÁ</th>
-                                        <th>SỐ LƯỢNG</th>
-                                        <th>TỔNG CỘNG</th>
+                                        <th>{t('products')}</th>
+                                        <th>{t('price')}</th>
+                                        <th>{t('products')}</th>
+                                        <th>{t('quantity')}</th>
                                     </tr>
                                 </thead>
                                 {productStorage.map((item, index) => {
@@ -106,7 +93,10 @@ function ShoppingCart({ render }) {
                                                     <p>{item.name}</p>
                                                 </td>
                                                 <td>
-                                                    <p>{item.price}</p>
+                                                    <p>
+                                                        {numeral(+item.price).format('0,0')}
+                                                        <b>đ</b>
+                                                    </p>
                                                 </td>
                                                 <td className="quantity">
                                                     <div className="quantity-item">
@@ -126,52 +116,57 @@ function ShoppingCart({ render }) {
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>{` ${handleTotalPrice1Item(item.quantity, item.price)} đ`}</td>
+                                                <td>
+                                                    {` ${handleTotalPrice1Item(item.quantity, item.price)}`}
+                                                    <b>đ</b>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     );
                                 })}
                             </table>
-
                             <div className="shoppingCart-left-footer">
                                 <div className="shoppingCart-left-footer-btn">
                                     <FontAwesomeIcon icon={faArrowLeftLong} className="icon" />
                                     <Link to="/">
-                                        <p>TIẾP TỤC XEM SẢN PHẨM</p>
+                                        <p>{t('continuetoviewproducts')}</p>
                                     </Link>
                                 </div>
                             </div>
                         </div>
                         <div className="shoppingCart-right">
-                            <h1>TỔNG SỐ LƯỢNG</h1>
+                            <h1>{t('totalquantity')}</h1>
                             <div className="shoppingCart-right-total">
-                                <p>Tổng cộng</p>
+                                <p>{t('totallowerCase')}</p>
                                 <p>
-                                    <b>{handleTotalProduct(productStorage)} đ</b>
+                                    <b>
+                                        {handleTotalProduct(productStorage)}
+                                        <b>đ</b>
+                                    </b>
                                 </p>
                             </div>
-                            <div className="shoppingCart-right-total">
-                                <p>Giao hàng</p>
+                            {/* <div className="shoppingCart-right-total">
+                                <p>{t('paymentmethods')}</p>
                                 <p>
-                                    <b>Giao hàng miễn phí</b>
+                                    <b>{t('momo')}</b>
                                 </p>
-                            </div>
+                            </div> */}
                             <Link to="/pay">
                                 <div className="shoppingCart-right-btn">
-                                    <p>TIẾN HÀNH THANH TOÁN</p>
+                                    <p>{t('pay')}</p>
                                 </div>
                             </Link>
                             <div className="shoppingCart-right-discount">
                                 <FontAwesomeIcon icon={faTag} className="icon" />
                                 <p>
-                                    <b>Mã ưu đãi</b>
+                                    <b>{t('promotionalCode')}</b>
                                 </p>
                             </div>
                             <div className="shoppingCart-right-discount-input">
                                 <input type="text" placeholder="Mã ưu đãi" />
                             </div>
                             <div className="shoppingCart-right-discount-btn">
-                                <p>Áp dụng</p>
+                                <p>{t('apply')}</p>
                             </div>
                         </div>
                     </div>

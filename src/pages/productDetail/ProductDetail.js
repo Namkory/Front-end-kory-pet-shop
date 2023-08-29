@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 function ProductDetail() {
     const [quantity, setQuantity] = useState(1);
     const localProductDetail = JSON.parse(localStorage.getItem('productDetail'));
-    console.log('check localProductDetail', localProductDetail);
     const [productDetails, setProductDetails] = useState([]);
 
     useEffect(() => {

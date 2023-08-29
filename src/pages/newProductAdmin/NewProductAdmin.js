@@ -92,7 +92,7 @@ function NewProductAdmin() {
             .then((res) => {
                 const result = res.data;
                 if (result.errCode === 0) {
-                    navigate('/products');
+                    navigate('/admin/products');
                 }
             })
             .catch((error) => console.log(error));

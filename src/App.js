@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 
 import Layout from './layout/Layout';
 import LayoutAdmin from './layoutAdmin/layoutAdmin';
@@ -13,7 +14,7 @@ import Contact from './pages/contact/Contact';
 import ShoppingCart from './pages/shoppingCart/ShoppingCart';
 import ProductDetail from './pages/productDetail/ProductDetail';
 import Payy from './pages/payy/Payy';
-import { useState } from 'react';
+import PayMethod from './pages/payMethod/PayMethod';
 import Dashboard from './pages/dashboard/Dashboard';
 import ProductsAdmin from './pages/productsAdmin/ProductsAdmin';
 import NewProductAdmin from './pages/newProductAdmin/NewProductAdmin';
@@ -22,6 +23,7 @@ import Order from './pages/order/Order';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import NewUserAdmin from './pages/newUserAdmin/NewUserAdmin';
+import OrderDetail from './pages/orderDetail/OrderDetail';
 
 function App() {
     let [state, setState] = useState(0);
@@ -29,10 +31,12 @@ function App() {
     const render = () => {
         setState(state + 1);
     };
+    let roleAdmin = localStorage.getItem('role');
     return (
         <div className="App">
             <BrowserRouter>
                 <Routes>
+                    {/* URL User Page */}
                     <Route path="/">
                         <Route
                             index
@@ -53,76 +57,6 @@ function App() {
                         <Route path="login">
                             <Route index element={<Login />} />
                             <Route path="register" element={<Register />} />
-                        </Route>
-                        <Route path="admin">
-                            <Route
-                                index
-                                element={
-                                    <LayoutAdmin>
-                                        <Dashboard />
-                                    </LayoutAdmin>
-                                }
-                            />
-                            <Route path="products">
-                                <Route
-                                    index
-                                    element={
-                                        <LayoutAdmin>
-                                            <ProductsAdmin />
-                                        </LayoutAdmin>
-                                    }
-                                />
-                                <Route
-                                    path="new"
-                                    element={
-                                        <LayoutAdmin>
-                                            <NewProductAdmin />
-                                        </LayoutAdmin>
-                                    }
-                                />
-                                <Route
-                                    path="edit-product/:id"
-                                    element={
-                                        <LayoutAdmin>
-                                            <NewProductAdmin />
-                                        </LayoutAdmin>
-                                    }
-                                />
-                            </Route>
-                            <Route path="customer">
-                                <Route
-                                    index
-                                    element={
-                                        <LayoutAdmin>
-                                            <Customers />
-                                        </LayoutAdmin>
-                                    }
-                                />
-                                <Route
-                                    path="newuser"
-                                    element={
-                                        <LayoutAdmin>
-                                            <NewUserAdmin />
-                                        </LayoutAdmin>
-                                    }
-                                />
-                                <Route
-                                    path="edit-user/:id"
-                                    element={
-                                        <LayoutAdmin>
-                                            <NewUserAdmin />
-                                        </LayoutAdmin>
-                                    }
-                                />
-                            </Route>
-                            <Route
-                                path="orders"
-                                element={
-                                    <LayoutAdmin>
-                                        <Order />
-                                    </LayoutAdmin>
-                                }
-                            />
                         </Route>
                         <Route
                             path="dog"
@@ -188,14 +122,113 @@ function App() {
                                 </Layout>
                             }
                         />
-                        <Route
+                        {/* <Route
                             path="pay"
                             element={
                                 <Layout>
                                     <Payy />
                                 </Layout>
                             }
+                        /> */}
+                        <Route path="pay">
+                            <Route
+                                index
+                                element={
+                                    <Layout>
+                                        <Payy />
+                                    </Layout>
+                                }
+                            />
+                            <Route
+                                path="payMethod"
+                                element={
+                                    <Layout>
+                                        <PayMethod />
+                                    </Layout>
+                                }
+                            />
+                        </Route>
+                    </Route>
+                    {/* URL admin Page */}
+                    <Route path={roleAdmin === 'admin' ? 'admin' : ''}>
+                        <Route
+                            index
+                            element={
+                                <LayoutAdmin>
+                                    <Dashboard />
+                                </LayoutAdmin>
+                            }
                         />
+                        <Route path="products">
+                            <Route
+                                index
+                                element={
+                                    <LayoutAdmin>
+                                        <ProductsAdmin />
+                                    </LayoutAdmin>
+                                }
+                            />
+                            <Route
+                                path="new"
+                                element={
+                                    <LayoutAdmin>
+                                        <NewProductAdmin />
+                                    </LayoutAdmin>
+                                }
+                            />
+                            <Route
+                                path="edit-product/:id"
+                                element={
+                                    <LayoutAdmin>
+                                        <NewProductAdmin />
+                                    </LayoutAdmin>
+                                }
+                            />
+                        </Route>
+                        <Route path="customer">
+                            <Route
+                                index
+                                element={
+                                    <LayoutAdmin>
+                                        <Customers />
+                                    </LayoutAdmin>
+                                }
+                            />
+                            <Route
+                                path="newuser"
+                                element={
+                                    <LayoutAdmin>
+                                        <NewUserAdmin />
+                                    </LayoutAdmin>
+                                }
+                            />
+                            <Route
+                                path="edit-user/:id"
+                                element={
+                                    <LayoutAdmin>
+                                        <NewUserAdmin />
+                                    </LayoutAdmin>
+                                }
+                            />
+                        </Route>
+                        <Route path="orders">
+                            <Route
+                                index
+                                element={
+                                    <LayoutAdmin>
+                                        <Order />
+                                    </LayoutAdmin>
+                                }
+                            />
+                            <Route
+                                path="order-detail/:id"
+                                element={
+                                    <LayoutAdmin>
+                                        <OrderDetail />
+                                    </LayoutAdmin>
+                                }
+                            />
+                        </Route>
                     </Route>
                 </Routes>
             </BrowserRouter>

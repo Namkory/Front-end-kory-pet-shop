@@ -8,11 +8,15 @@ import axios from 'axios';
 import { handleAddProduct } from '../../util';
 import { handleGetDetail } from '../../util';
 import { Link } from 'react-router-dom';
+import '../../language/i18n';
+import { useTranslation } from 'react-i18next';
+import numeral from 'numeral';
 
 function Home({ render }) {
     const [dogs, setDogs] = useState([]);
     const [cats, setCats] = useState([]);
     const [foods, setFoods] = useState([]);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const getDogProducts = async () => {
@@ -90,7 +94,7 @@ function Home({ render }) {
             </div>
             <div className="home-dog">
                 <div className="home-dog-header">
-                    <h1>CHÓ CẢNH</h1>
+                    <h1>{t('dog')}</h1>
                     <div className="home-dog-header-img">
                         <img src={images.bell} alt="bell" />
                     </div>
@@ -123,7 +127,7 @@ function Home({ render }) {
                                 </div>
                                 <h1>{item.title}</h1>
                                 <p>
-                                    {item.price}
+                                    {numeral(+item.price).format('0,0')}
                                     <b>
                                         <u>đ</u>
                                     </b>
@@ -132,16 +136,18 @@ function Home({ render }) {
                         );
                     })}
                 </div>
-                <div className="home-dog-footer">
-                    <button className="btn">
-                        <span>Xem thêm</span>
-                    </button>
-                </div>
+                <Link to="/dog">
+                    <div className="home-dog-footer">
+                        <button className="btn">
+                            <span>{t('seemore')}</span>
+                        </button>
+                    </div>
+                </Link>
             </div>
             <div className="bannerdog4"></div>
             <div className="home-cat">
                 <div className="home-cat-header">
-                    <h1>MÈO CẢNH</h1>
+                    <h1>{t('cat')}</h1>
                     <div className="home-cat-header-img">
                         <img src={images.bell} alt="bell" />
                     </div>
@@ -170,7 +176,7 @@ function Home({ render }) {
                                 </div>
                                 <h1>{item.title}</h1>
                                 <p>
-                                    {item.price}
+                                    {numeral(+item.price).format('0,0')}
                                     <b>
                                         <u>đ</u>
                                     </b>
@@ -179,11 +185,13 @@ function Home({ render }) {
                         );
                     })}
                 </div>
-                <div className="home-cat-footer">
-                    <button className="btn">
-                        <span>Xem thêm</span>
-                    </button>
-                </div>
+                <Link to="/cat">
+                    <div className="home-cat-footer">
+                        <button className="btn">
+                            <span>{t('seemore')}</span>
+                        </button>
+                    </div>
+                </Link>
             </div>
             <div className="bannerdog5 grid grid-cols-2 ">
                 <div className="bannerdog5-left"></div>
@@ -191,7 +199,7 @@ function Home({ render }) {
             </div>
             <div className="home-food">
                 <div className="home-food-header">
-                    <h1>THỨC ĂN</h1>
+                    <h1>{t('food')}</h1>
                     <div className="home-food-header-img">
                         <img src={images.bell} alt="bell" />
                     </div>
@@ -220,7 +228,7 @@ function Home({ render }) {
                                 </div>
                                 <h1>{item.title}</h1>
                                 <p>
-                                    {item.price}
+                                    {numeral(+item.price).format('0,0')}
                                     <b>
                                         <u>đ</u>
                                     </b>
@@ -229,11 +237,13 @@ function Home({ render }) {
                         );
                     })}
                 </div>
-                <div className="home-food-footer">
-                    <button className="btn">
-                        <span>Xem thêm</span>
-                    </button>
-                </div>
+                <Link to="/food">
+                    <div className="home-food-footer">
+                        <button className="btn">
+                            <span>{t('seemore')}</span>
+                        </button>
+                    </div>
+                </Link>
             </div>
         </div>
     );

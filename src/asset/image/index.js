@@ -19,5 +19,10 @@ const images = {
     noImageadmin: require('../image/logo1.png'),
     avataradmin: require('../image/vatatar.jpg'),
     noImage1admin: require('../image/no-image.jpg'),
+    logo_momo: require('../image/MoMo_Logo.png'),
+    logo_vietcombank: require('../image/VIETCOMBANK-logo.png'),
+    qr_momo: require('../image/qr_momo2.jpg'),
+    icon_qr_scan: require('../image/icon-qr-scan.jpg'),
+    qr_vietcombank: require('../image/qrvietcombank.jpg'),
 };
 export default images;

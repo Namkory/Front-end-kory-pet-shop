@@ -1,27 +1,24 @@
 import './Contact.scss';
 import images from '../../asset/image';
+import '../../language/i18n';
+import { useTranslation } from 'react-i18next';
 
 function Contact() {
+    const { t } = useTranslation();
     return (
         <div className="contact">
             <div className="container">
                 <div className="contact-left">
                     <div className="contact-left-header">
-                        <h1>LIÊN HỆ VỚI CHÚNG TÔI</h1>
+                        <h1>{t('contactus')}</h1>
                         <div className="contact-left-header-img">
                             <img src={images.bell1} alt="bell" />
                         </div>
                     </div>
                     <div className="contact-left-content">
-                        <p>Kory Media là công ty thiết kế website cao cấp có tuổi đời 8+ năm trong ngành.</p>
-                        <p>
-                            Ngay từ những ngày đầu hoạt động, Kory Media đã chọn cho mình một phân khúc riêng, khác biệt
-                            với hàng ngàn công ty thiết kế website trên thị trường: phân khúc của sự hiệu quả.
-                        </p>
-                        <p>
-                            Những website/phần mềm từ Kory Media luôn được tư vấn, phát triển, tối ưu nhằm mang lại hiệu
-                            quả rõ rệt cho hoạt động kinh doanh của doanh nghiệp
-                        </p>
+                        <p>{t('contacttext1')}.</p>
+                        <p>{t('contacttext2')}.</p>
+                        <p>{t('contacttext3')}</p>
                     </div>
                     <div className="contact-left-footer">
                         <div className="contact-left-footer-img">
@@ -33,19 +30,19 @@ function Contact() {
                     <div className="contact-right-form">
                         <form>
                             <div className="contact-name">
-                                <input type="text" placeholder="Họ và tên" />
+                                <input type="text" placeholder={t('name')} />
                             </div>
                             <div className="contact-email">
                                 <input type="email" placeholder="Email" />
                             </div>
                             <div className="contact-phone">
-                                <input type="text" placeholder="Số điện thoại" />
+                                <input type="text" placeholder={t('sdt')} />
                             </div>
-                            <textarea rows="4" cols="70" placeholder="Lời nhắn"></textarea>
+                            <textarea rows="4" cols="70" placeholder={t('note')}></textarea>
 
                             <div className="contact-btn">
                                 <button type="submit" className="contact-submit ">
-                                    <span>Gửi</span>
+                                    <span>{t('send')}</span>
                                 </button>
                             </div>
                         </form>

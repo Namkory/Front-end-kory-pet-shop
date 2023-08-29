@@ -3,21 +3,24 @@ import images from '../../asset/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faSkype } from '@fortawesome/free-brands-svg-icons';
+import '../../language/i18n';
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
+    const { t } = useTranslation();
     return (
         <div className="Footer">
             <div className="Footer-top">footer top</div>
             <div className="Footer-wrapper-mid">
                 <div className="footer-mid">
                     <div className="footer-mid-directional">
-                        <h3>ĐIỀU HƯỚNG</h3>
+                        <h3>{t('directional')}</h3>
                         <ul>
-                            <li>Trang chủ</li>
-                            <li>Về chúng tôi</li>
-                            <li>Sản phẩm</li>
-                            <li>Điểm tin hữu ích</li>
-                            <li>Liên hệ</li>
+                            <li>{t('homepage')}</li>
+                            <li>{t('aboutus')}</li>
+                            <li>{t('products')}</li>
+                            <li>{t('usefulnews')}</li>
+                            <li>{t('contactfooter')}</li>
                         </ul>
                     </div>
                     <div className="footer-mid-email">
@@ -29,12 +32,12 @@ function Footer() {
                         <div className="input-submit">
                             <input type="email" placeholder="Email" />
                             <button type="button" className="footer-btn">
-                                Gửi{' '}
+                                {t('send')}
                             </button>
                         </div>
                     </div>
                     <div className="footer-mid-contact">
-                        <h3>THÔNG TIN LIÊN HỆ</h3>
+                        <h3>{t('communication')}</h3>
                         <ul>
                             <li>
                                 <FontAwesomeIcon icon={faLocationDot} className="icon" />

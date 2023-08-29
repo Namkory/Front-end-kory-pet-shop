@@ -67,6 +67,33 @@
                 display: flex;
                 margin-left: 40px;
 
+                .language {
+                    width: 110px;
+                    padding: 10px 10px;
+                    background-color: white;
+                    border-radius: 5px;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    transform: translateX(30px);
+
+                    .en {
+                        border-bottom: 1px solid gray;
+                        padding-bottom: 5px;
+                        margin-bottom: 5px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: #30b5b2;
+                        }
+                    }
+
+                    .vi {
+                        cursor: pointer;
+                        &:hover {
+                            color: #30b5b2;
+                        }
+                    }
+                }
+
                 .header-container-right-item {
                     font-size: 1.2em;
                     color: #fff;

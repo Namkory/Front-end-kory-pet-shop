@@ -19,6 +19,7 @@ import {
     faWallet,
     faXmark,
 } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 import './Navbar.scss';
 import image from '../../asset/image';
@@ -39,6 +40,15 @@ function Navbar() {
 
     const [check, setCheck] = useState(false);
     const [check1, setCheck1] = useState(false);
+    const [state, setState] = useState(0);
+    let navigate = useNavigate();
+    const handleLogout = () => {
+        localStorage.removeItem('userName');
+        localStorage.removeItem('role');
+        localStorage.removeItem('userId');
+        navigate('/login');
+        setState(state + 1);
+    };
 
     return (
         <div className="navbar">
@@ -67,7 +77,7 @@ function Navbar() {
                                         <FontAwesomeIcon icon={faGear} className="menu-infor-icon" />
                                         <span>Settings</span>
                                     </li>
-                                    <li className="menu-infor">
+                                    <li className="menu-infor" onClick={handleLogout}>
                                         <FontAwesomeIcon icon={faArrowRightFromBracket} className="menu-infor-icon" />
                                         <span>Logout</span>
                                     </li>

@@ -76,7 +76,108 @@
                     }
                 }
             }
+            .accessory-left-range {
+                margin-bottom: 30px;
+                .accessory-left-range-title {
+                    font-weight: bold;
+                    position: relative;
+                    margin-bottom: 25px;
 
+                    &::after {
+                        content: '';
+                        display: block;
+                        background-color: #e5e5e5;
+                        top: 140%;
+                        left: 0;
+                        width: 30px;
+                        height: 3px;
+                        position: absolute;
+                    }
+                }
+                .multi-range-slider {
+                    display: flex;
+                    position: relative;
+                    border: none;
+                    padding: 20px 0px;
+                    box-shadow: none;
+                    flex-direction: column;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    user-select: none;
+                    .labels {
+                        display: none;
+                    }
+                    .caption {
+                        display: none;
+                    }
+                    .bar-left,
+                    .bar-right {
+                        width: 25%;
+                        background-color: #f1f1f1;
+                        border-radius: 10px 0px 0px 10px;
+                        padding: 4px 0px;
+                        box-shadow: none;
+                    }
+
+                    .bar-inner {
+                        background-color: #ababab;
+                        display: flex;
+                        flex-grow: 1;
+                        flex-shrink: 1;
+                        position: relative;
+                        border: solid 1px black;
+                        justify-content: space-between;
+                    }
+
+                    .thumb::before {
+                        content: '';
+                        background-color: #666;
+                        position: absolute;
+                        width: 20px;
+                        height: 20px;
+                        border: solid 1px #666;
+                        box-shadow: none;
+                        border-radius: 50%;
+                        z-index: 1;
+                        margin: -8px -12px;
+                        cursor: pointer;
+                    }
+
+                    .bar-inner {
+                        background-color: #ababab;
+                        display: flex;
+                        flex-grow: 1;
+                        flex-shrink: 1;
+                        position: relative;
+                        border: solid 1px #ababab;
+                        justify-content: space-between;
+                    }
+                }
+                .accessory-left-range-btn {
+                    display: flex;
+                    justify-content: space-between;
+                    .accessory-left-range-btn-filter {
+                        width: 55px;
+                        height: 30px;
+                        background-color: #666;
+                        border-radius: 99px;
+                        text-align: center;
+                        cursor: pointer;
+                        p {
+                            font-size: 1em;
+                            color: white;
+                            line-height: 30px;
+                            font-weight: bold;
+                        }
+                        &:hover {
+                            background-color: #928b8b;
+                        }
+                    }
+                    .accessory-left-range-btn-price {
+                        font-size: 1em;
+                    }
+                }
+            }
             .accessory-right-products-title {
                 font-weight: bold;
                 position: relative;

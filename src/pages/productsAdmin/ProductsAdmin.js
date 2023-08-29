@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import images from '../../asset/image/index';
 import axios from 'axios';
 import { flexbox } from '@mui/system';
+import numeral from 'numeral';
 
 const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -51,6 +52,9 @@ const columns = [
         type: 'number',
         width: 110,
         editable: true,
+        renderCell: (params) => {
+            return <div>{numeral(params.row.price).format('0,0')}đ</div>;
+        },
     },
     {
         field: 'categoryId',
@@ -79,7 +83,7 @@ function Products() {
                             id: item.id,
                             categoryId: item.categoryId,
                             title: item.title,
-                            price: item.price,
+                            price: +item.price,
                             discount: item.discount,
                             thumbnail: item.thumbnail === null ? images.noImage1 : item.thumbnail,
                         });
@@ -147,7 +151,7 @@ function Products() {
                     <div className="btn-create-item">Create new product</div>
                 </Link>
             </div>
-            <Box sx={{ height: 700, width: '100%' }}>
+            <Box sx={{ height: 600, width: '100%' }}>
                 <DataGrid
                     sx={{ textAlign: 'center' }}
                     rows={rows}

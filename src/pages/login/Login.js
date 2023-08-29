@@ -19,6 +19,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [err, setErr] = useState('');
+    const [state, setState] = useState(0);
 
     const navigate = useNavigate();
     const handleLogin = (e) => {
@@ -30,10 +31,17 @@ function Login() {
                 password: password,
             })
             .then((res) => {
+                console.log('check res', res);
                 if (res.data.errCode === 0) {
                     localStorage.setItem('userName', res.data.user.fullName);
-                    console.log('checkk localuser', localStorage.getItem('userName'));
-                    navigate('/');
+                    localStorage.setItem('role', res.data.user.roleId);
+                    localStorage.setItem('userId', res.data.user.id);
+                    if (res.data.user.roleId === 'admin') {
+                        navigate('/admin');
+                        setState(state + 1);
+                    } else {
+                        navigate('/');
+                    }
                 } else {
                     setErr(res.data.message);
                 }

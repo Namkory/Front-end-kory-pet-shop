@@ -4,10 +4,20 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { handleAddProduct } from '../../util';
 import { handleGetDetail } from '../../util';
+import '../../language/i18n';
+import { useTranslation } from 'react-i18next';
+import MultiRangeSlider from 'multi-range-slider-react';
+import numeral from 'numeral';
 
 function Dog({ render }) {
     const [foods, setFoods] = useState([]);
-
+    const { t } = useTranslation();
+    const [minValue, set_minValue] = useState(150000);
+    const [maxValue, set_maxValue] = useState(400000);
+    const handleInput = (e) => {
+        set_minValue(e.minValue);
+        set_maxValue(e.maxValue);
+    };
     useEffect(() => {
         const getAllFoods = async () => {
             const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-all-product?categoryId=2`);
@@ -24,24 +34,50 @@ function Dog({ render }) {
                 <div className="food-left">
                     <div className="food-left-header">
                         <Link to="/">
-                            <h1 className="food-left-header-home">TRANG CHỦ</h1>
+                            <h1 className="food-left-header-home">{t('home')}</h1>
                         </Link>
                         <span>/</span>
-                        <h1 className="food-left-header-food">CHÓ CẢNH</h1>
+                        <h1 className="food-left-header-food">{t('food')}</h1>
                     </div>
                     <div className="food-left-categoty">
-                        <div className="food-left-categoty-title">DANH MỤC SẢN PHẨM</div>
+                        <div className="food-left-categoty-title">{t('productportfolio')}</div>
                         <div className="food-left-categoty-content">
                             <Link to="/dog">
-                                <p>Chó cảnh</p>
+                                <p>{t('dog')}</p>
                             </Link>
                             <span></span>
                             <Link to="/cat">
-                                <p>Mèo cảnh</p>
+                                <p>{t('cat')}</p>
                             </Link>
                         </div>
                     </div>
-                    <div className="food-right-products-title">SẢN PHẨM</div>
+                    <div className="food-left-range">
+                        <div className="food-left-range-title">LỌC THEO GIÁ</div>
+                        <MultiRangeSlider
+                            min={0}
+                            max={500000}
+                            step={5}
+                            ruler="flase"
+                            minValue={minValue}
+                            maxValue={maxValue}
+                            onInput={(e) => {
+                                handleInput(e);
+                            }}
+                        />
+                        <div className="food-left-range-btn">
+                            <div className="food-left-range-btn-filter">
+                                <p>Lọc</p>
+                            </div>
+                            <div className="food-left-range-btn-price">
+                                Giá:{' '}
+                                <b>
+                                    {numeral(minValue).format('0,0')} <u>đ</u> - {numeral(maxValue).format('0,0')}{' '}
+                                    <u>đ</u>
+                                </b>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="food-right-products-title">{t('productproduct')}</div>
                     <div className="food-right-products">
                         {foods.slice(0, 4).map((item, index) => {
                             return (
@@ -51,7 +87,7 @@ function Dog({ render }) {
                                         <p>{item.title}</p>
                                         <p>
                                             <b>
-                                                {item.price}
+                                                {numeral(+item.price).format('0,0')}
                                                 <u>đ</u>
                                             </b>
                                         </p>
@@ -88,7 +124,7 @@ function Dog({ render }) {
                                 </div>
                                 <h1>{item.title}</h1>
                                 <p>
-                                    {item.price}
+                                    {numeral(+item.price).format('0,0')}
                                     <b>
                                         <u>đ</u>
                                     </b>
