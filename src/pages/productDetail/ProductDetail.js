@@ -2,22 +2,20 @@ import './ProductDetail.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import numeral from 'numeral';
 
 function ProductDetail() {
     const [quantity, setQuantity] = useState(1);
     const localProductDetail = JSON.parse(localStorage.getItem('productDetail'));
     const [productDetails, setProductDetails] = useState([]);
-
     useEffect(() => {
         const getAllProductDetails = async () => {
             const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-all-product?categoryId=3`);
             const allproductDetails = res.data.products;
             setProductDetails(allproductDetails);
         };
-
         getAllProductDetails();
     }, []);
-
     const handleUpdateQuantity = (action) => {
         if (action === 'increase') {
             setQuantity(quantity + 1);
@@ -27,7 +25,6 @@ function ProductDetail() {
             }
         }
     };
-
     const handleAddNewProduct = async (data) => {
         const dataLocal = await JSON.parse(localStorage.getItem('products'));
         if (dataLocal) {
@@ -76,7 +73,7 @@ function ProductDetail() {
                                         <p className="title">{item.title}</p>
                                         <p>
                                             <b>
-                                                {item.price}
+                                                {numeral(item.price).format('0,0')}
                                                 <u>đ</u>
                                             </b>
                                         </p>
@@ -104,7 +101,7 @@ function ProductDetail() {
                                     <div className="productDetail-right-title">
                                         <h1>{item.name}</h1>
                                     </div>
-                                    <h1>{item.price}đ</h1>
+                                    <h1>{numeral(item.price).format('0,0')}đ</h1>
                                     <p>{item.description}</p>
                                     <div className="productDetail-right-infor-footer">
                                         <div className="quantity-item">

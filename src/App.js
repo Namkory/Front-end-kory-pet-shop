@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
-
 import Layout from './layout/Layout';
 import LayoutAdmin from './layoutAdmin/layoutAdmin';
 import Home from './pages/home/Home';
@@ -27,7 +26,6 @@ import OrderDetail from './pages/orderDetail/OrderDetail';
 
 function App() {
     let [state, setState] = useState(0);
-
     const render = () => {
         setState(state + 1);
     };
@@ -122,14 +120,6 @@ function App() {
                                 </Layout>
                             }
                         />
-                        {/* <Route
-                            path="pay"
-                            element={
-                                <Layout>
-                                    <Payy />
-                                </Layout>
-                            }
-                        /> */}
                         <Route path="pay">
                             <Route
                                 index

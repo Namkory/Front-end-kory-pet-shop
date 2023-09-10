@@ -40,7 +40,6 @@ function OrderDetail() {
     useEffect(() => {
         getOrderDetail();
     }, []);
-
     const getOrderDetail = async () => {
         try {
             const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-order-detail?orderId=${id}`);

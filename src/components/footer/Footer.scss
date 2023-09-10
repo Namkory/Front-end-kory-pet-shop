@@ -6,41 +6,33 @@
         color: gray;
     }
 }
-
 .Footer {
     max-height: 430px;
-
     .Footer-top {
         max-height: 60px;
         background-color: black;
     }
-
     .Footer-wrapper-mid {
         background: url('../../asset/image/logo3.jpg') no-repeat center center;
         background-size: cover;
-
         .footer-mid {
             max-width: 1200px;
             margin: 0 auto;
             height: 360px;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-
             .footer-mid-directional {
                 height: 100%;
                 width: 280px;
                 padding: 30px;
                 border-right: 1px dotted white;
-
                 h3 {
                     color: white;
                     font-weight: 800;
                     font-size: 18px;
                 }
-
                 li {
                     color: gray;
                     margin: 10px 0;
@@ -51,12 +43,10 @@
                     }
                 }
             }
-
             .footer-mid-email {
                 height: 100%;
                 padding: 30px;
                 text-align: center;
-
                 .logo-footer {
                     background: url('../../asset/image/logo.png') no-repeat center center;
                     background-size: cover;
@@ -68,18 +58,15 @@
                     color: gray;
                     margin-bottom: 40px;
                 }
-
                 .input-submit {
                     display: flex;
                     justify-content: center;
-
                     input {
                         height: 45px;
                         width: 315px;
                         border-radius: 5px;
                         padding: 0 10px;
                     }
-
                     .footer-btn {
                         width: 55px;
                         background: #45bdba;
@@ -88,52 +75,43 @@
                         margin-left: 10px;
                         color: white;
                         font-weight: 600;
-
                         &:hover {
                             outline: 2px solid #45bdba;
                         }
                     }
                 }
             }
-
             .footer-mid-contact {
                 height: 100%;
-
                 width: 280px;
                 padding: 30px;
                 border-left: 1px dotted white;
                 li {
                     margin: 10px 0;
                 }
-
                 h3 {
                     color: white;
                     font-weight: 800;
                     font-size: 18px;
                 }
-
                 .icon {
                     color: #45bdba;
                     margin-right: 15px;
                     font-size: 18px;
                 }
-
                 span {
                     color: gray;
                 }
             }
         }
     }
-
     .footer-bottom {
         max-height: 60px;
-
         background-color: black;
         color: gray;
         display: flex;
         align-items: center;
         justify-content: center;
-
         .logoFooter {
             width: 20px;
             height: 20px;

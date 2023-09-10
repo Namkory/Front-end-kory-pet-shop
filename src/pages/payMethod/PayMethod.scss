@@ -47,19 +47,15 @@
             }
             .right {
                 flex: 1;
-
                 .right-container {
                     margin-left: 30px;
                     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                     border-radius: 10px;
-
                     .right-content {
                         padding: 20px 30px;
-
                         h1 {
                             margin: 10px 0;
                         }
-
                         ul {
                             list-style: disc;
                             margin-left: 30px;

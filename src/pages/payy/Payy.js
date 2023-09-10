@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../language/i18n';
 import { useTranslation } from 'react-i18next';
+import numeral from 'numeral';
 
 function Payy() {
     const productStorage = JSON.parse(localStorage.getItem('products'));
@@ -14,9 +15,6 @@ function Payy() {
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [note, setNote] = useState('');
-    // const [payMethod, setPayMethod] = useState('vietcombank');
-    // localStorage.setItem('pay_method', payMethod);
-    // console.log('check ', payMethod);
     const [payMethod, setPayMethod] = useState(() => {
         const savedPayMethod = localStorage.getItem('pay_method');
         return savedPayMethod !== null ? savedPayMethod : 'vietcombank';
@@ -164,21 +162,24 @@ function Payy() {
                                                 {item.name} × {item.quantity}
                                             </p>
                                             <h5>
-                                                <b>{` ${handleTotalPrice1Item(item.quantity, item.price)} đ`}</b>
+                                                <b>
+                                                    {numeral(handleTotalPrice1Item(item.quantity, item.price)).format(
+                                                        '0,0',
+                                                    )}{' '}
+                                                    đ
+                                                </b>
                                             </h5>
                                         </div>
                                     );
                                 })}
-
                                 <div className="pay-container-right-inner-total">
                                     <p>{t('totallowerCase')}</p>
                                     <h5>
-                                        <b>{handleTotalProduct(productStorage)} đ</b>
+                                        <b>{numeral(handleTotalProduct(productStorage)).format('0,0')} đ</b>
                                     </h5>
                                 </div>
                                 <div className="pay-container-right-inner-total">
                                     <p>{t('paymentmethods')}</p>
-                                    {/* <span>{t('momo')}</span> */}
                                     <select className="outline-none" value={payMethod} onChange={handleOptionChange}>
                                         <option value="vietcombank">Vietcombank</option>
                                         <option value="momo">Quét mã Momo</option>

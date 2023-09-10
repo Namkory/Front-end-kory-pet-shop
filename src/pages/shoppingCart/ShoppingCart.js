@@ -145,12 +145,6 @@ function ShoppingCart({ render }) {
                                     </b>
                                 </p>
                             </div>
-                            {/* <div className="shoppingCart-right-total">
-                                <p>{t('paymentmethods')}</p>
-                                <p>
-                                    <b>{t('momo')}</b>
-                                </p>
-                            </div> */}
                             <Link to="/pay">
                                 <div className="shoppingCart-right-btn">
                                     <p>{t('pay')}</p>

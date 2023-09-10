@@ -6,7 +6,6 @@
     right: 0;
     bottom: 0;
     left: 0;
-
     .modal-container {
         width: 870px;
         height: 370px;
@@ -16,25 +15,21 @@
         border-radius: 15px;
         padding: 30px 20px;
     }
-
     .modal-container-inner {
         h1 {
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 10px;
         }
-
         p {
             font-weight: 600;
             margin-bottom: 5px;
             font-size: 14px;
         }
-
         span:hover {
             color: #e8598f;
             cursor: pointer;
         }
-
         .modal-email,
         .modal-password {
             width: 100%;
@@ -42,14 +37,12 @@
             border: 1px solid #dddddd;
             margin-bottom: 20px;
             border-radius: 2px;
-
             input {
                 height: 100%;
                 width: 100%;
                 outline-color: #30b5b2;
             }
         }
-
         .modal-btn-login {
             display: flex;
             .modal-btn {
@@ -61,11 +54,9 @@
                 cursor: pointer;
                 margin-bottom: 15px;
                 margin-right: 20px;
-
                 &:hover {
                     background-color: #26918e;
                 }
-
                 .btn {
                     color: white;
                     font-weight: 600;

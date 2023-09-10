@@ -14,9 +14,7 @@ function NewProductAdmin() {
     const [discount, setDiscount] = useState('');
     const [description, setDescription] = useState('');
     const [categoryId, setCategoryId] = useState(0);
-
     const { id } = useParams(); //Dùng để lấy id trên thanh url
-
     useEffect(() => {
         if (id) {
             axios
@@ -42,7 +40,6 @@ function NewProductAdmin() {
             setCategoryId(0);
         }
     }, [id]);
-
     // handle xử lý gọi ảnh và chuyển ảnh sang base64
     const handleOnChange = async (e) => {
         let data = e.target.files;
@@ -55,7 +52,6 @@ function NewProductAdmin() {
         }
     };
     const navigate = useNavigate();
-
     const handleSubmiss = (e) => {
         e.preventDefault();
 
@@ -76,7 +72,6 @@ function NewProductAdmin() {
             })
             .catch((error) => console.log(error));
     };
-
     const handleUpdate = (e) => {
         e.preventDefault();
         axios
@@ -113,7 +108,6 @@ function NewProductAdmin() {
                             <label htmlFor="file">
                                 Image: <FontAwesomeIcon icon={faUpload} className="icon" />
                             </label>
-
                             <input
                                 type="file"
                                 id="file"

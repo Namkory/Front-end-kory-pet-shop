@@ -42,14 +42,11 @@ const columns = [
         editable: true,
     },
 ];
-
 function Customers() {
     let [rows, setRows] = React.useState([]);
-
     useEffect(() => {
         getUser();
     }, []);
-
     const getUser = async () => {
         axios
             .get(`${process.env.REACT_APP_BACKEND_URL}/getall-user?id=ALL`)
@@ -72,7 +69,6 @@ function Customers() {
             })
             .catch((error) => console.log(error));
     };
-
     const handleDeleteUser = async (idUser) => {
         console.log('check iduser', idUser);
         axios
@@ -87,11 +83,9 @@ function Customers() {
             .catch((error) => console.log(error));
     };
     const navigate = useNavigate();
-
     const handleUpdateUser = (id) => {
         navigate(`edit-user/${id}`);
     };
-
     const actionColumn = [
         {
             field: 'action',

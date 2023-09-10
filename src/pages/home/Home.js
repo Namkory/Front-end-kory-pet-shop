@@ -17,7 +17,6 @@ function Home({ render }) {
     const [cats, setCats] = useState([]);
     const [foods, setFoods] = useState([]);
     const { t } = useTranslation();
-
     useEffect(() => {
         const getDogProducts = async () => {
             const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-all-product?categoryId=0`);
@@ -27,10 +26,8 @@ function Home({ render }) {
                 alert(res.data.errMessage);
             }
         };
-
         getDogProducts();
     }, []);
-
     useEffect(() => {
         const getCatProducts = async () => {
             const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-all-product?categoryId=1`);
@@ -40,10 +37,8 @@ function Home({ render }) {
                 alert(res.data.errMessage);
             }
         };
-
         getCatProducts();
     }, []);
-
     useEffect(() => {
         const getFoodProducts = async () => {
             const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-all-product?categoryId=2`);
@@ -53,7 +48,6 @@ function Home({ render }) {
                 alert(res.data.errMessage);
             }
         };
-
         getFoodProducts();
     }, []);
 
@@ -101,7 +95,6 @@ function Home({ render }) {
                 </div>
                 <div className="home-dog-content grid grid-cols-4 grid-rows-2 gap-6  ">
                     {dogs.slice(0, 8).map((item, index) => {
-                        // console.log('check', index);
                         return (
                             <div key={index} className="list-dog ">
                                 <img src={item.thumbnail} alt="thumbnail" className="thumbnail" />
@@ -154,7 +147,6 @@ function Home({ render }) {
                 </div>
                 <div className="home-cat-content grid grid-cols-4 grid-rows-2 gap-6  ">
                     {cats.slice(0, 8).map((item, index) => {
-                        // console.log('check', index);
                         return (
                             <div key={index} className="list-cat ">
                                 <img src={item.thumbnail} alt="thumbnail" className="thumbnail" />
@@ -206,7 +198,6 @@ function Home({ render }) {
                 </div>
                 <div className="home-food-content grid grid-cols-4 grid-rows-2 gap-6  ">
                     {foods.slice(0, 8).map((item, index) => {
-                        // console.log('check', index);
                         return (
                             <div key={index} className="list-food ">
                                 <img src={item.thumbnail} alt="thumbnail" className="thumbnail" />

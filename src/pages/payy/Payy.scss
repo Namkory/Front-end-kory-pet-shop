@@ -3,7 +3,6 @@
         display: flex;
         width: 1200px;
         margin: 30px auto;
-
         .pay-container-left {
             flex: 6;
             margin-right: 30px;
@@ -14,7 +13,6 @@
                 font-weight: 600;
                 margin-bottom: 20px;
             }
-
             form {
                 input,
                 textarea {
@@ -22,7 +20,6 @@
                     width: 100%;
                     height: 37px;
                     padding: 0 10px;
-
                     &:focus {
                         box-shadow: 0 0 5px #ccc;
                         opacity: 1 !important;
@@ -31,34 +28,28 @@
                         background-color: #fff;
                     }
                 }
-
                 textarea {
                     height: 120px;
                     padding: 10px;
                 }
-
                 .pay-container-left-fullName {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     width: 100%;
                     margin-bottom: 20px;
-
                     .pay-container-left-lastName {
                         margin-left: 20px;
                     }
-
                     .pay-container-left-firstName,
                     .pay-container-left-lastName {
                         flex: 1;
                         width: 50%;
                     }
                 }
-
                 .pay-container-left-item {
                     margin-bottom: 20px;
                 }
-
                 .pay-container-right-inner-order {
                     width: 120px;
                     height: 40px;
@@ -67,11 +58,9 @@
                     align-items: center;
                     background-color: #30b5b2;
                     cursor: pointer;
-
                     &:hover {
                         background-color: #2e9f9c;
                     }
-
                     button {
                         font-size: 16px;
                         font-weight: 600;
@@ -80,14 +69,12 @@
                 }
             }
         }
-
         .pay-container-right {
             flex: 4;
             display: block;
             border: 2px solid #30b5b2;
             height: 100%;
             padding: 30px;
-
             .pay-container-right-inner {
                 h1 {
                     height: 40px;
@@ -96,7 +83,6 @@
                     padding-top: 7px;
                     margin-bottom: 25px;
                 }
-
                 .pay-container-right-inner-productTotal {
                     height: 33px;
                     display: flex;
@@ -105,14 +91,12 @@
                     border-bottom: 1px solid #dddddd;
                     padding: 5px;
                     margin-bottom: 25px;
-
                     P {
                         font-size: 14px;
                         font-weight: 600;
                         color: #30b5b2;
                     }
                 }
-
                 .pay-container-right-inner-product {
                     height: 25px;
                     display: flex;
@@ -121,18 +105,15 @@
                     border-bottom: 1px solid #dddddd;
                     padding: 5px;
                     margin-bottom: 25px;
-
                     P {
                         font-size: 14px;
                         font-weight: 600;
                         color: #30b5b2;
                     }
-
                     h5 {
                         font-size: 14px;
                     }
                 }
-
                 .pay-container-right-inner-total {
                     height: 33px;
                     display: flex;
@@ -141,19 +122,16 @@
                     border-bottom: 1px solid #dddddd;
                     padding: 5px;
                     margin-bottom: 25px;
-
                     P {
                         font-size: 14px;
                         font-weight: 600;
                         color: #30b5b2;
                     }
-
                     span {
                         font-size: 14px;
                         color: gray;
                     }
                 }
-
                 .pay-container-right-inner-text {
                     color: #30b5b2;
                 }

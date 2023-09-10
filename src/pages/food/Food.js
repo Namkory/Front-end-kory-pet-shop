@@ -10,10 +10,11 @@ import MultiRangeSlider from 'multi-range-slider-react';
 import numeral from 'numeral';
 
 function Dog({ render }) {
-    const [foods, setFoods] = useState([]);
     const { t } = useTranslation();
+    const [foods, setFoods] = useState([]);
     const [minValue, set_minValue] = useState(150000);
-    const [maxValue, set_maxValue] = useState(400000);
+    const [maxValue, set_maxValue] = useState(800000);
+    const [filterProducts, setFilterProducts] = useState([]);
     const handleInput = (e) => {
         set_minValue(e.minValue);
         set_maxValue(e.maxValue);
@@ -24,9 +25,12 @@ function Dog({ render }) {
             const allFoods = res.data.products;
             setFoods(allFoods);
         };
-
         getAllFoods();
     }, []);
+    useEffect(() => {
+        const filteredProducts = foods.filter((product) => product.price >= minValue && product.price <= maxValue);
+        setFilterProducts(filteredProducts);
+    }, [minValue, maxValue, foods]);
 
     return (
         <div className="food">
@@ -52,10 +56,10 @@ function Dog({ render }) {
                         </div>
                     </div>
                     <div className="food-left-range">
-                        <div className="food-left-range-title">LỌC THEO GIÁ</div>
+                        <div className="food-left-range-title">{t('filterbyprice')}</div>
                         <MultiRangeSlider
                             min={0}
-                            max={500000}
+                            max={1000000}
                             step={5}
                             ruler="flase"
                             minValue={minValue}
@@ -65,11 +69,8 @@ function Dog({ render }) {
                             }}
                         />
                         <div className="food-left-range-btn">
-                            <div className="food-left-range-btn-filter">
-                                <p>Lọc</p>
-                            </div>
                             <div className="food-left-range-btn-price">
-                                Giá:{' '}
+                                {t('price')}:
                                 <b>
                                     {numeral(minValue).format('0,0')} <u>đ</u> - {numeral(maxValue).format('0,0')}{' '}
                                     <u>đ</u>
@@ -98,7 +99,7 @@ function Dog({ render }) {
                     </div>
                 </div>
                 <div className="food-right grid grid-cols-3 gap-6">
-                    {foods.map((item, index) => {
+                    {filterProducts.map((item, index) => {
                         return (
                             <div key={index} className="food-right-list-food ">
                                 <img src={item.thumbnail} alt="thumbnail" className="thumbnail" />

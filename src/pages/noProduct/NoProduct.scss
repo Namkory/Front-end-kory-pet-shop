@@ -1,6 +1,5 @@
 .noProduct {
     height: 305px;
-
     .noProduct-container {
         width: 1200px;
         height: 100%;
@@ -9,7 +8,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
         .noProduct-container-inner {
             .noProduct-container-btn {
                 width: 230px;
@@ -20,11 +18,9 @@
                 height: 40px;
                 text-align: center;
                 cursor: pointer;
-
                 &:hover {
                     background-color: #26918e;
                 }
-
                 p {
                     font-size: 17px;
                     line-height: 30px;

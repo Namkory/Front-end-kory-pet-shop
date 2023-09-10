@@ -3,13 +3,11 @@
     justify-items: center;
     justify-content: space-between;
     gap: 15px;
-
     .custome-action1 {
         padding: 2px 5px;
         border-radius: 5px;
         color: skyblue;
         border: 1px solid rgba(0, 0, 139, 0.596);
-
         &:hover {
             background-color: skyblue;
             color: white;

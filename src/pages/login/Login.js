@@ -6,7 +6,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import axios from 'axios';
-
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper';
 import { Link } from 'react-router-dom';
@@ -20,11 +19,9 @@ function Login() {
     const [password, setPassword] = useState('');
     const [err, setErr] = useState('');
     const [state, setState] = useState(0);
-
     const navigate = useNavigate();
     const handleLogin = (e) => {
         e.preventDefault();
-
         axios
             .post(`${process.env.REACT_APP_BACKEND_URL}/user-login`, {
                 email: email,
@@ -48,6 +45,7 @@ function Login() {
             })
             .catch((error) => console.log(error));
     };
+
     return (
         <div className="login-page">
             <div className="login-container">
@@ -62,7 +60,6 @@ function Login() {
                         pagination={{
                             clickable: true,
                         }}
-                        // navigation={true}
                         modules={[Autoplay, Pagination, Navigation]}
                         className="mySwiper"
                     >

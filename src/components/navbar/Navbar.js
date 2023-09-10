@@ -20,24 +20,19 @@ import {
     faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-
 import './Navbar.scss';
 import image from '../../asset/image';
 import Wrapper from '../wrapper/Wrapper';
-
 function Navbar() {
     const [visible, setVisible] = useState(false);
     const show = () => setVisible(true);
     const hide = () => setVisible(false);
-
     const [visible1, setVisible1] = useState(false);
     const show1 = () => setVisible1(true);
     const hide1 = () => setVisible1(false);
-
     const [visible2, setVisible2] = useState(false);
     const show2 = () => setVisible2(true);
     const hide2 = () => setVisible2(false);
-
     const [check, setCheck] = useState(false);
     const [check1, setCheck1] = useState(false);
     const [state, setState] = useState(0);

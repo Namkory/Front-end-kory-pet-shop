@@ -13,7 +13,6 @@ function NewUserAdmin() {
     const [role, setRole] = useState('user');
     console.log('check role', role);
     const [errMessage, setErrMessage] = useState('');
-
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -38,7 +37,6 @@ function NewUserAdmin() {
             })
             .catch((error) => console.log(error));
     };
-
     useEffect(() => {
         if (id) {
             axios
@@ -62,7 +60,6 @@ function NewUserAdmin() {
             setRole('');
         }
     }, [id]);
-
     const handleUpdate = (e) => {
         e.preventDefault();
         axios

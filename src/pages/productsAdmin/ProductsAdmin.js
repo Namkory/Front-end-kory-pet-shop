@@ -3,7 +3,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 import { Link, useNavigate } from 'react-router-dom';
-
 import { useEffect } from 'react';
 import images from '../../asset/image/index';
 import axios from 'axios';
@@ -31,7 +30,6 @@ const columns = [
             );
         },
     },
-
     {
         field: 'title',
         headerName: 'Name',
@@ -66,11 +64,9 @@ const columns = [
 
 function Products() {
     let [rows, setRows] = React.useState([]);
-
     useEffect(() => {
         getproduct();
     }, []);
-
     const getproduct = async () => {
         axios
             .get(`${process.env.REACT_APP_BACKEND_URL}/get-all-product?categoryId=ALL`)
@@ -93,7 +89,6 @@ function Products() {
             })
             .catch((error) => console.log(error));
     };
-
     const handleDeleteProduct = async (idProduct) => {
         axios
             .delete(`${process.env.REACT_APP_BACKEND_URL}/delete-product?id=${idProduct}`)
@@ -105,13 +100,10 @@ function Products() {
             })
             .catch((error) => console.log(error));
     };
-
     const navigate = useNavigate();
-
     const handleUpdateProduct = (id) => {
         navigate(`edit-product/${id}`);
     };
-
     const actionColumn = [
         {
             field: 'action',

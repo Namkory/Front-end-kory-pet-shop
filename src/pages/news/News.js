@@ -1,5 +1,4 @@
 import './News.scss';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import images from '../../asset/image/index';
@@ -56,7 +55,6 @@ function News() {
                             <img src={images.new_banner1} alt="new avatar" className="avatar-title" />
                             <div className="news-content-right-item-title">
                                 <h1>Duis luctus elit nisi, et cursus magna pellentesque non.</h1>
-
                                 <p>Chế độ ăn cho chó con Chó con từ 2 tháng tuổi đến 6 tháng [...]</p>
                             </div>
                         </div>

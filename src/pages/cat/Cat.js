@@ -10,10 +10,11 @@ import numeral from 'numeral';
 import MultiRangeSlider from 'multi-range-slider-react';
 
 function Cat({ render }) {
-    const [cats, setCats] = useState([]);
     const { t } = useTranslation();
+    const [cats, setCats] = useState([]);
     const [minValue, set_minValue] = useState(2000000);
     const [maxValue, set_maxValue] = useState(8000000);
+    const [filterProducts, setFilterProducts] = useState([]);
     const handleInput = (e) => {
         set_minValue(e.minValue);
         set_maxValue(e.maxValue);
@@ -24,9 +25,12 @@ function Cat({ render }) {
             const allCats = res.data.products;
             setCats(allCats);
         };
-
         getAllCats();
     }, []);
+    useEffect(() => {
+        const filteredProducts = cats.filter((product) => product.price >= minValue && product.price <= maxValue);
+        setFilterProducts(filteredProducts);
+    }, [minValue, maxValue, cats]);
 
     return (
         <div className="cat">
@@ -52,7 +56,7 @@ function Cat({ render }) {
                         </div>
                     </div>
                     <div className="cat-left-range">
-                        <div className="cat-left-range-title">LỌC THEO GIÁ</div>
+                        <div className="cat-left-range-title">{t('filterbyprice')}</div>
                         <MultiRangeSlider
                             min={0}
                             max={10000000}
@@ -65,11 +69,8 @@ function Cat({ render }) {
                             }}
                         />
                         <div className="cat-left-range-btn">
-                            <div className="cat-left-range-btn-filter">
-                                <p>Lọc</p>
-                            </div>
                             <div className="cat-left-range-btn-price">
-                                Giá:{' '}
+                                {t('price')}:
                                 <b>
                                     {numeral(minValue).format('0,0')} <u>đ</u> - {numeral(maxValue).format('0,0')}{' '}
                                     <u>đ</u>
@@ -98,7 +99,7 @@ function Cat({ render }) {
                     </div>
                 </div>
                 <div className="cat-right grid grid-cols-3 gap-6">
-                    {cats.map((item, index) => {
+                    {filterProducts.map((item, index) => {
                         return (
                             <div key={index} className="cat-right-list-cat ">
                                 <img src={item.thumbnail} alt="thumbnail" className="thumbnail" />

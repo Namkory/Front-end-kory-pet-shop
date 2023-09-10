@@ -7,7 +7,6 @@ function NoProduct() {
             <div className="noProduct-container">
                 <div className="noProduct-container-inner">
                     <p>Chưa có sản phẩm trong giỏ hàng</p>
-
                     <Link to="/">
                         <div className="noProduct-container-btn">
                             <p>QUAY LẠI CỬA HÀNG</p>

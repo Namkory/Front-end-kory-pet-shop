@@ -10,10 +10,11 @@ import numeral from 'numeral';
 import MultiRangeSlider from 'multi-range-slider-react';
 
 function Accessory({ render }) {
-    const [accessorys, setAccessorys] = useState([]);
     const { t } = useTranslation();
-    const [minValue, set_minValue] = useState(500000);
-    const [maxValue, set_maxValue] = useState(4500000);
+    const [accessorys, setAccessorys] = useState([]);
+    const [minValue, set_minValue] = useState(100000);
+    const [maxValue, set_maxValue] = useState(3000000);
+    const [filterProducts, setFilterProducts] = useState([]);
     const handleInput = (e) => {
         set_minValue(e.minValue);
         set_maxValue(e.maxValue);
@@ -24,9 +25,12 @@ function Accessory({ render }) {
             const allAccessorys = res.data.products;
             setAccessorys(allAccessorys);
         };
-
         getAllAccessorys();
     }, []);
+    useEffect(() => {
+        const filteredProducts = accessorys.filter((product) => product.price >= minValue && product.price <= maxValue);
+        setFilterProducts(filteredProducts);
+    }, [minValue, maxValue, accessorys]);
 
     return (
         <div className="accessory">
@@ -52,7 +56,7 @@ function Accessory({ render }) {
                         </div>
                     </div>
                     <div className="accessory-left-range">
-                        <div className="accessory-left-range-title">LỌC THEO GIÁ</div>
+                        <div className="accessory-left-range-title">{t('filterbyprice')}</div>
                         <MultiRangeSlider
                             min={0}
                             max={5000000}
@@ -65,11 +69,8 @@ function Accessory({ render }) {
                             }}
                         />
                         <div className="accessory-left-range-btn">
-                            <div className="accessory-left-range-btn-filter">
-                                <p>Lọc</p>
-                            </div>
                             <div className="accessory-left-range-btn-price">
-                                Giá:{' '}
+                                {t('price')}:
                                 <b>
                                     {numeral(minValue).format('0,0')} <u>đ</u> - {numeral(maxValue).format('0,0')}{' '}
                                     <u>đ</u>
@@ -98,7 +99,7 @@ function Accessory({ render }) {
                     </div>
                 </div>
                 <div className="accessory-right grid grid-cols-3 gap-6">
-                    {accessorys.map((item, index) => {
+                    {filterProducts.map((item, index) => {
                         return (
                             <div key={index} className="accessory-right-list-accessory ">
                                 <img src={item.thumbnail} alt="thumbnail" className="thumbnail" />

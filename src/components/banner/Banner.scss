@@ -2,51 +2,42 @@
     background: url('../../asset/image/banner1.jpg') no-repeat center;
     background-size: cover;
 }
-
 .banner2 {
     background: url('../../asset/image/banner2.jpg') no-repeat center;
     background-size: cover;
 }
-
 .banner3 {
     background: url('../../asset/image/banner3.jpg') no-repeat center;
     background-size: cover;
 }
-
 .banner1,
 .banner2,
 .banner3 {
     padding-top: 150px;
-
     .banner-content {
         min-height: 340px;
         max-width: 1200px;
         margin: 0 auto;
-
         h4 {
             font-size: 2rem;
             color: white;
             font-weight: 600;
         }
-
         h1 {
             font-size: 3rem;
             color: white;
             font-weight: 600;
         }
-
         h5 {
             color: white;
             font-size: 20px;
             margin: 20px 0;
         }
-
         p {
             color: white;
             font-size: 20px;
             margin-bottom: 20px;
         }
-
         .btn {
             width: 184px;
             height: 60px;
@@ -56,7 +47,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
             span {
                 color: white;
                 font-size: 20px;

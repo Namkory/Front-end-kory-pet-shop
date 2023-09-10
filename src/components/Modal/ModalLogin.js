@@ -3,9 +3,7 @@ import { useState } from 'react';
 
 function ModalLogin({ open, onClose }) {
     const [openRegister, setOpenRegister] = useState(false);
-
     if (!open) return null;
-
     return (
         <div className="modal" onClick={onClose}>
             <div

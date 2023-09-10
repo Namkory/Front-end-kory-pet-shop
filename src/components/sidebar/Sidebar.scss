@@ -7,7 +7,6 @@
         cursor: pointer;
         background-size: cover;
     }
-
     .sidebar_content {
         .sidebar-item {
             margin: 0 20px;
@@ -16,24 +15,20 @@
             align-items: center;
             font-weight: 600;
             transition: color 0.3s ease 0s;
-
             .icon {
                 margin-right: 15px;
                 font-size: 1.5rem;
                 color: #349eff;
             }
-
             &:hover {
                 color: #349eff;
             }
         }
-
         .active {
             border-radius: 25px;
             background: blue;
             color: white !important;
             background: #349eff;
-
             .icon {
                 color: #ffffff;
             }

@@ -30,7 +30,6 @@ export const handleAddProduct = async (data, render) => {
     }
     render();
 };
-
 export const handleGetDetail = async (data) => {
     // console.log('check data', data);
     const localProductDetail = JSON.parse(localStorage.getItem('productDetail'));

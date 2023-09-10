@@ -9,7 +9,6 @@ function Register() {
     const [password, setPassword] = useState('');
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
-
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -33,7 +32,6 @@ function Register() {
 
     return (
         <div className="register-background">
-            {/* <div>dfvbfd</div> */}
             <div className="register-container">
                 <div className="text-center">
                     <h1 className="register-title">Sign Up</h1>

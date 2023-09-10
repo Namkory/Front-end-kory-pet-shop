@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { flexbox } from '@mui/system';
+import numeral from 'numeral';
 
 const columns = [
     { field: 'id', headerName: 'ID', width: 50 },
@@ -53,20 +54,17 @@ const columns = [
         headerName: 'TotalMoney',
         width: 100,
         editable: true,
-        // renderCell: (params) => {
-        //     return <div>{numeral(params.row.totalMoney).format('0,0')}đ</div>;
-        //     return <div>{params.row.totalMoney}</div>;
-        // },
+        renderCell: (params) => {
+            return <div>{numeral(params.row.totalMoney).format('0,0')}đ</div>;
+        },
     },
 ];
 
 function Order() {
     let [rows, setRows] = React.useState([]);
-
     useEffect(() => {
         getUser();
     }, []);
-
     const getUser = async () => {
         axios
             .get(`${process.env.REACT_APP_BACKEND_URL}/get-all-orders?id=ALL`)
@@ -75,7 +73,6 @@ function Order() {
                 if (data.errCode === 0) {
                     let arr = [];
                     data.orders?.forEach((item) => {
-                        // console.log('check tien', item.totalMoney);
                         arr.push({
                             id: item.id,
                             userId: item.userId,
@@ -93,12 +90,10 @@ function Order() {
             })
             .catch((error) => console.log(error));
     };
-
     const navigate = useNavigate();
     const handleOrderDetail = (id) => {
         navigate(`order-detail/${id}`);
     };
-
     const actionColumn = [
         {
             field: 'action',

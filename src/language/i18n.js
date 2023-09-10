@@ -10,7 +10,6 @@ const resources = {
         translation: languageVi,
     },
 };
-
 i18n.use(initReactI18next).init({
     resources,
     lng: 'vi',

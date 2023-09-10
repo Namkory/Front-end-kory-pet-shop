@@ -1,47 +1,37 @@
 .dog {
     padding: 30px 0;
-
     .dog-container {
         width: 1200px;
         margin: 0 auto;
         display: flex;
-
         .dog-left {
             flex: 1;
             padding: 0 15px;
-
             .dog-left-header {
                 display: flex;
                 margin-bottom: 30px;
-
                 .dog-left-header-home {
                     font-size: 18px;
                     color: rgba(102, 102, 102, 0.7);
-
                     &:hover {
                         color: #30b5b2;
                     }
                 }
-
                 span {
                     color: rgba(102, 102, 102, 0.7);
                     margin: 0 10px;
                 }
-
                 .dog-left-header-dog {
                     font-size: 18px;
                     font-weight: bold;
                 }
             }
-
             .dog-left-categoty {
                 margin-bottom: 30px;
-
                 .dog-left-categoty-title {
                     font-weight: bold;
                     position: relative;
                     margin-bottom: 25px;
-
                     &::after {
                         content: '';
                         display: block;
@@ -53,12 +43,10 @@
                         position: absolute;
                     }
                 }
-
                 .dog-left-categoty-content {
                     height: 100px;
                     border: 1px solid #dddddd;
                     padding: 20px;
-
                     p {
                         color: black;
                         &:hover {
@@ -66,7 +54,6 @@
                             cursor: pointer;
                         }
                     }
-
                     span {
                         display: block;
                         background-color: #dddddd;
@@ -82,7 +69,6 @@
                     font-weight: bold;
                     position: relative;
                     margin-bottom: 25px;
-
                     &::after {
                         content: '';
                         display: block;
@@ -118,7 +104,6 @@
                         padding: 4px 0px;
                         box-shadow: none;
                     }
-
                     .bar-inner {
                         background-color: #ababab;
                         display: flex;
@@ -128,7 +113,6 @@
                         border: solid 1px black;
                         justify-content: space-between;
                     }
-
                     .thumb::before {
                         content: '';
                         background-color: #666;
@@ -142,7 +126,6 @@
                         margin: -8px -12px;
                         cursor: pointer;
                     }
-
                     .bar-inner {
                         background-color: #ababab;
                         display: flex;
@@ -182,7 +165,6 @@
                 font-weight: bold;
                 position: relative;
                 margin-bottom: 25px;
-
                 &::after {
                     content: '';
                     display: block;
@@ -194,24 +176,19 @@
                     position: absolute;
                 }
             }
-
             .dog-right-products {
                 max-height: 450px;
                 border: 1px solid #dddddd;
                 padding: 10px 15px;
-
                 .dog-right-products-item {
                     padding: 10px 0;
                     display: flex;
-                    // align-items: center;
-
                     .avatar {
                         width: 60px;
                         height: 60px;
                         object-fit: cover;
                         margin-right: 15px;
                     }
-
                     &:hover {
                         cursor: pointer;
                         color: #30b5b2;
@@ -219,20 +196,17 @@
                 }
             }
         }
-
         .dog-right {
             flex: 3;
-
             padding-top: 57px;
-
+            grid-template-columns: repeat(3, 1fr);
             .dog-right-list-dog {
-                min-height: 386px;
+                max-height: 386px;
                 border-radius: 15px;
                 text-align: center;
                 cursor: pointer;
                 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
                 position: relative;
-
                 .btn-add {
                     position: absolute;
                     left: 10px;
@@ -245,17 +219,14 @@
                     justify-content: center;
                     cursor: pointer;
                     border-radius: 10px;
-
                     &:hover {
                         background-color: rgba(48, 181, 178, 0.9);
                     }
-
                     .btn {
                         color: #fff;
                         font-weight: 600;
                     }
                 }
-
                 .btn-detail {
                     position: absolute;
                     left: 10px;
@@ -268,27 +239,22 @@
                     justify-content: center;
                     cursor: pointer;
                     border-radius: 10px;
-
                     &:hover {
                         background-color: rgba(48, 181, 178, 0.9);
                     }
-
                     .btn {
                         color: #fff;
                         font-weight: 600;
                     }
                 }
-
                 &:hover {
                     outline: 2px solid #30b5b2;
                     transform: translateY(-2%);
                 }
-
                 span {
                     color: gray;
                     font-size: 15px;
                 }
-
                 h1 {
                     margin-bottom: 20px;
 
@@ -296,7 +262,6 @@
                         color: #30b5b2;
                     }
                 }
-
                 .thumbnail {
                     border-top-left-radius: 15px;
                     border-top-right-radius: 15px;

@@ -3,23 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 .shoppingCart {
     .shoppingCart-container {
         width: 1200px;
-        // height: 455px;
         min-height: 455px;
         margin: 30px auto;
         display: flex;
-
         .shoppingCart-left {
             flex: 8;
             padding: 0 30px;
-
             .shoppingCart-noti {
                 display: flex;
                 align-items: center;
-
                 .icon {
                     color: green;
                     margin-right: 5px;
@@ -28,30 +23,24 @@
                     color: green;
                 }
             }
-
             table {
                 font-family: arial, sans-serif;
                 border-collapse: collapse;
                 width: 100%;
                 margin-bottom: 15px;
-
                 th {
                     border-bottom: 2px solid #dddddd;
                     text-align: left;
                     padding: 8px;
                 }
-
                 td {
                     text-align: left;
                     padding: 8px;
                 }
-
                 tr {
                     .product {
                         display: flex;
-
                         align-items: center;
-
                         .icon {
                             color: #dddddd;
                             &:hover {
@@ -59,7 +48,6 @@
                                 cursor: pointer;
                             }
                         }
-
                         img {
                             width: 60px;
                             height: 60px;
@@ -67,7 +55,6 @@
                             margin: 0 20px;
                             cursor: pointer;
                         }
-
                         p {
                             font-size: 14px;
                             &:hover {
@@ -76,24 +63,20 @@
                             }
                         }
                     }
-
                     .quantity {
                         .quantity-item {
                             display: flex;
                             height: 100%;
-
                             p {
                                 width: 30px;
                                 text-align: center;
                                 border: 1px solid #dddddd;
                             }
-
                             .quantity-item-icon {
                                 width: 30px;
                                 text-align: center;
                                 cursor: pointer;
                                 border: 1px solid #dddddd;
-
                                 &:hover {
                                     background-color: #dddddd;
                                 }
@@ -102,12 +85,10 @@
                     }
                 }
             }
-
             .shoppingCart-left-footer {
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-
                 .shoppingCart-left-footer-btn {
                     display: flex;
                     justify-content: flex-start;
@@ -116,37 +97,30 @@
                     border: 2px solid #30b5b2;
                     padding: 5px 15px;
                     cursor: pointer;
-
                     &:hover {
                         background-color: #30b5b2;
-
                         .icon {
                             color: white;
                         }
-
                         p {
                             color: white;
                         }
                     }
-
                     .icon {
                         font-size: 12px;
                         margin-right: 5px;
                         color: #30b5b2;
                     }
-
                     p {
                         color: #30b5b2;
                     }
                 }
             }
         }
-
         .shoppingCart-right {
             flex: 4;
             padding: 0 30px;
             border-left: 1px solid #dddddd;
-
             h1 {
                 height: 40px;
                 border-bottom: 2px solid #dddddd;
@@ -154,7 +128,6 @@
                 padding-top: 7px;
                 margin-bottom: 25px;
             }
-
             .shoppingCart-right-total {
                 height: 33px;
                 display: flex;
@@ -164,7 +137,6 @@
                 padding: 5px;
                 margin-bottom: 25px;
             }
-
             .shoppingCart-right-btn {
                 width: 100%;
                 height: 40px;
@@ -174,17 +146,14 @@
                 background-color: #30b5b2;
                 cursor: pointer;
                 margin-bottom: 25px;
-
                 &:hover {
                     background-color: #369a98;
                 }
-
                 p {
                     color: white;
                     font-weight: 600;
                 }
             }
-
             .shoppingCart-right-discount {
                 height: 33px;
                 display: flex;
@@ -192,32 +161,27 @@
                 border-bottom: 1px solid #dddddd;
                 padding: 5px;
                 margin-bottom: 15px;
-
                 .icon {
                     color: #369a98;
                     font-size: 18px;
                     margin-right: 10px;
                 }
             }
-
             .shoppingCart-right-discount-input {
                 padding: 5px 10px;
                 border: 1px solid #dddddd;
                 height: 40px;
                 margin-bottom: 25px;
-
                 &:focus-within {
                     box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
                     outline: 1px solid #ddd;
                 }
-
                 input {
                     height: 100%;
                     width: 100%;
                     outline: none;
                 }
             }
-
             .shoppingCart-right-discount-btn {
                 padding: 5px 10px;
                 border: 1px solid #dddddd;
@@ -225,7 +189,6 @@
                 height: 40px;
                 text-align: center;
                 cursor: pointer;
-
                 &:hover {
                     background-color: #30b5b2;
 
@@ -233,7 +196,6 @@
                         color: white;
                     }
                 }
-
                 p {
                     font-size: 18px;
                     color: gray;

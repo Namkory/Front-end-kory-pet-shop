@@ -52,6 +52,7 @@ const languageEn = {
     promotionalCode: 'Promotional code',
     apply: 'Apply',
     complete: 'COMPLETE',
+    filterbyprice: 'FILTER BY PRICE',
 };
 
 export default languageEn;

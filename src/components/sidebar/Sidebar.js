@@ -1,6 +1,5 @@
 import './Sidebar.scss';
 import { useState } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faAddressCard,
@@ -14,7 +13,6 @@ import {
     faStore,
 } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-
 function Sidebar() {
     const [index, setIndex] = useState(0);
 

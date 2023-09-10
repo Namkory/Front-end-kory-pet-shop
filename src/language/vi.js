@@ -45,12 +45,13 @@ const languageVi = {
     paymentmethods: 'Phương thức thanh toán',
     momo: 'Ví MoMo',
     thank: 'Cảm ơn quý khách đã tin tưởng và ủng hộ kory shop. Kính chúc quý khách có một ngày tốt lành. Nếu cần tư vấn bất kì điều gì xin hãy liên hệ với chúng tôi.',
-    price: 'Gía',
+    price: 'Giá',
     quantity: 'Số lượng',
     totalquantity: 'Tổng số lượng',
     continuetoviewproducts: 'Tiếp tục xem sản phẩm',
     promotionalCode: 'Mã giảm giá',
     apply: 'Áp dụng',
     complete: 'HOÀN THÀNH',
+    filterbyprice: 'LỌC THEO GIÁ',
 };
 export default languageVi;

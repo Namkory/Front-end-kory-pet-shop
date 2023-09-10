@@ -7,32 +7,25 @@
         margin: 20px;
         border-radius: 15px;
     }
-
     .newuser-header {
         h1 {
-            // color: lightgray;
             font-size: 20px;
             font-weight: 600;
         }
     }
-
     .err {
         padding: 10px;
         margin: 20px;
-
         h1 {
             font-size: 20px;
             color: red;
         }
     }
-
     .newuser-content {
         display: flex;
         padding: 30px;
-
         .newuser-content-left {
             flex: 1;
-
             img {
                 margin: 0 auto;
                 width: 200px;
@@ -41,14 +34,11 @@
                 object-fit: cover;
             }
         }
-
         .newuser-content-right {
             flex: 2;
-
             form {
                 .form-input {
                     width: 100%;
-
                     label {
                         .icon {
                             color: #349eff;
@@ -57,7 +47,6 @@
                             margin-left: 10px;
                         }
                     }
-
                     input,
                     select,
                     option,
@@ -69,7 +58,6 @@
                         outline: none;
                     }
                 }
-
                 .btn {
                     width: 150px;
                     background-color: #349eff;
@@ -79,7 +67,6 @@
                     font-weight: 600;
                     font-size: 18px;
                     padding: 10px;
-
                     &:hover {
                         background-color: #0580f1;
                         outline: 2px solid #349eff;
