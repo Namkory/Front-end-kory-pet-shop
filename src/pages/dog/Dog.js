@@ -8,6 +8,8 @@ import '../../language/i18n';
 import { useTranslation } from 'react-i18next';
 import numeral from 'numeral';
 import MultiRangeSlider from 'multi-range-slider-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 function Dog({ render }) {
     const { t } = useTranslation();
@@ -109,7 +111,7 @@ function Dog({ render }) {
                                         className="btn"
                                         onClick={() => handleAddProduct(item, render())}
                                     >
-                                        Add
+                                        <FontAwesomeIcon icon={faCartShopping} className="icon" />
                                     </button>
                                 </div>
                                 <div className="btn-detail">
@@ -119,7 +121,7 @@ function Dog({ render }) {
                                             type="button"
                                             className="btn"
                                         >
-                                            Detail
+                                            <FontAwesomeIcon icon={faCircleInfo} className="icon" />
                                         </button>
                                     </Link>
                                 </div>

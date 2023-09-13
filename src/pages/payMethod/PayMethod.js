@@ -41,7 +41,7 @@ function PayMethod() {
                     {payMethod === 'momo' ? (
                         <div className="left">
                             <h1>Quét mã để thanh toán</h1>
-                            <img src={images.logo_momo} alt="logo Momo" className="left-logo-momo" />
+                            <img src={images.logo_momo} alt="logo Momo" className="left-logo-momo1" />
                             <div className="left-infor">
                                 <p>
                                     Người nhận: <b>Nguyễn Hoài Nam</b>
@@ -67,7 +67,7 @@ function PayMethod() {
                     ) : (
                         <div className="left">
                             <h1>Quét mã để thanh toán</h1>
-                            <img src={images.logo_vietcombank} alt="logo Vietcombank" className="left-logo-momo" />
+                            <img src={images.logo_vietcombank} alt="logo Vietcombank" className="left-logo-momo1" />
                             <div className="left-infor">
                                 <p>
                                     Người nhận: <b>Nguyễn Hoài Nam</b>

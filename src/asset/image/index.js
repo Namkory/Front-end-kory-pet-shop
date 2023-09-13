@@ -24,5 +24,6 @@ const images = {
     qr_momo: require('../image/qr_momo2.jpg'),
     icon_qr_scan: require('../image/icon-qr-scan.jpg'),
     qr_vietcombank: require('../image/qrvietcombank.jpg'),
+    thankcute: require('../image/thankcute.jpg'),
 };
 export default images;

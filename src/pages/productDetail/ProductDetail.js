@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import numeral from 'numeral';
+import { useTranslation } from 'react-i18next';
 
 function ProductDetail() {
+    const { t } = useTranslation();
     const [quantity, setQuantity] = useState(1);
     const localProductDetail = JSON.parse(localStorage.getItem('productDetail'));
     const [productDetails, setProductDetails] = useState([]);
@@ -63,7 +65,7 @@ function ProductDetail() {
         <div className="productDetail">
             <div className="productDetail-container">
                 <div className="productDetail-left">
-                    <div className="productDetail-left-products-title">SẢN PHẨM</div>
+                    <div className="productDetail-left-products-title">{t('productuppercase')}</div>
                     <div className="productDetail-left-products">
                         {productDetails.slice(0, 5).map((item, index) => {
                             return (
@@ -93,10 +95,10 @@ function ProductDetail() {
                                 <div className="productDetail-right-infor">
                                     <div className="productDetail-right-header">
                                         <Link to="/">
-                                            <h1 className="productDetail-right-header-home">TRANG CHỦ</h1>
+                                            <h1 className="productDetail-right-header-home">{t('home')}</h1>
                                         </Link>
                                         <span>/</span>
-                                        <h1 className="productDetail-right-header-dog">CHÓ CẢNH</h1>
+                                        <h1 className="productDetail-right-header-dog">{t('dog')}</h1>
                                     </div>
                                     <div className="productDetail-right-title">
                                         <h1>{item.name}</h1>
@@ -120,7 +122,7 @@ function ProductDetail() {
                                             </div>
                                         </div>
                                         <div className="productDetail-right-infor-footer-btn">
-                                            <p onClick={() => handleAddNewProduct(item)}>THÊM VÀO GIỎ </p>
+                                            <p onClick={() => handleAddNewProduct(item)}>{t('addtocart')}</p>
                                         </div>
                                     </div>
                                 </div>

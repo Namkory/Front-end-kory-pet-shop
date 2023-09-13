@@ -9,8 +9,11 @@ import './Banner.scss';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Banner() {
+    const { t } = useTranslation();
+
     return (
         <>
             <Swiper
@@ -39,7 +42,7 @@ function Banner() {
                             <p>Aliquam condimentum mattis neque sed pretium …</p>
                             <Link to="/dog">
                                 <button type="button" className="btn">
-                                    <span>SHOP NOW</span>
+                                    <span>{t('shopnow')}</span>
                                 </button>
                             </Link>
                         </div>
@@ -57,7 +60,7 @@ function Banner() {
                             <p>Aliquam condimentum mattis neque sed pretium …</p>
                             <Link to="/food">
                                 <button type="button" className="btn">
-                                    <span>SHOP NOW</span>
+                                    <span>{t('shopnow')}</span>
                                 </button>
                             </Link>
                         </div>
@@ -74,7 +77,7 @@ function Banner() {
                             </p>
                             <Link to="/cat">
                                 <button type="button" className="btn">
-                                    <span>SHOP NOW</span>
+                                    <span>{t('shopnow')}</span>
                                 </button>
                             </Link>
                         </div>

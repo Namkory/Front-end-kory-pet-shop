@@ -2,7 +2,14 @@ import './Home.scss';
 import { useEffect, useState } from 'react';
 import Banner from '../../components/banner/Banner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGift, faPiggyBank, faRocket, faWallet } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCartShopping,
+    faCircleInfo,
+    faGift,
+    faPiggyBank,
+    faRocket,
+    faWallet,
+} from '@fortawesome/free-solid-svg-icons';
 import images from '../../asset/image';
 import axios from 'axios';
 import { handleAddProduct } from '../../util';
@@ -59,29 +66,29 @@ function Home({ render }) {
                     <div className="pay-item">
                         <FontAwesomeIcon icon={faRocket} className="icon" />
                         <div className="infor">
-                            <h1>FREE SHIPPING</h1>
-                            <p>All Order Over $150</p>
+                            <h1>{t('freeshipping')}</h1>
+                            <p>{t('allordersover')} $150</p>
                         </div>
                     </div>
                     <div className="pay-item">
                         <FontAwesomeIcon icon={faPiggyBank} className="icon" />
                         <div className="infor">
-                            <h1>15% DISCOUNT</h1>
-                            <p>For Firts Order</p>
+                            <h1>15% {t('discount')}</h1>
+                            <p>{t('forfirstorder')}</p>
                         </div>
                     </div>
                     <div className="pay-item">
                         <FontAwesomeIcon icon={faWallet} className="icon" />
                         <div className="infor">
-                            <h1>SECURE PAYMENT</h1>
-                            <p>Confirmed</p>
+                            <h1>{t('securepayment')}</h1>
+                            <p>{t('confirmed')}</p>
                         </div>
                     </div>
                     <div className="pay-item">
                         <FontAwesomeIcon icon={faGift} className="icon" />
                         <div className="infor">
-                            <h1> AWESOME GIFT</h1>
-                            <p>Every Month</p>
+                            <h1>{t('awesomegift')}</h1>
+                            <p>{t('everymonth')}</p>
                         </div>
                     </div>
                 </div>
@@ -104,7 +111,7 @@ function Home({ render }) {
                                         type="button"
                                         className="btn"
                                     >
-                                        Add
+                                        <FontAwesomeIcon icon={faCartShopping} className="icon" />
                                     </button>
                                 </div>
                                 <div className="btn-detail">
@@ -114,7 +121,7 @@ function Home({ render }) {
                                             type="button"
                                             className="btn"
                                         >
-                                            Detail
+                                            <FontAwesomeIcon icon={faCircleInfo} className="icon" />
                                         </button>
                                     </Link>
                                 </div>
@@ -152,7 +159,7 @@ function Home({ render }) {
                                 <img src={item.thumbnail} alt="thumbnail" className="thumbnail" />
                                 <div className="btn-add">
                                     <button onClick={() => handleAddProduct(item)} type="button" className="btn">
-                                        Add
+                                        <FontAwesomeIcon icon={faCartShopping} className="icon" />
                                     </button>
                                 </div>
                                 <div className="btn-detail">
@@ -162,7 +169,7 @@ function Home({ render }) {
                                             type="button"
                                             className="btn"
                                         >
-                                            Detail
+                                            <FontAwesomeIcon icon={faCircleInfo} className="icon" />
                                         </button>
                                     </Link>
                                 </div>
@@ -203,7 +210,7 @@ function Home({ render }) {
                                 <img src={item.thumbnail} alt="thumbnail" className="thumbnail" />
                                 <div className="btn-add">
                                     <button onClick={() => handleAddProduct(item)} type="button" className="btn">
-                                        Add
+                                        <FontAwesomeIcon icon={faCartShopping} className="icon" />
                                     </button>
                                 </div>
                                 <div className="btn-detail">
@@ -213,7 +220,7 @@ function Home({ render }) {
                                             type="button"
                                             className="btn"
                                         >
-                                            Detail
+                                            <FontAwesomeIcon icon={faCircleInfo} className="icon" />
                                         </button>
                                     </Link>
                                 </div>

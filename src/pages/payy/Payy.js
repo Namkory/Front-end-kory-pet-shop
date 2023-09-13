@@ -10,6 +10,7 @@ import numeral from 'numeral';
 function Payy() {
     const productStorage = JSON.parse(localStorage.getItem('products'));
     const { t } = useTranslation();
+    let userID = localStorage.getItem('userId');
     const [fullName, setFullName] = useState('');
     const [address, setAddress] = useState('');
     const [phone, setPhone] = useState('');
@@ -19,6 +20,16 @@ function Payy() {
         const savedPayMethod = localStorage.getItem('pay_method');
         return savedPayMethod !== null ? savedPayMethod : 'vietcombank';
     });
+    useEffect(() => {
+        const getUser = async (userID) => {
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/getall-user?id=${userID}`);
+            setFullName(res.data.users.fullName);
+            setAddress(res.data.users.address);
+            setPhone(res.data.users.phone);
+            setEmail(res.data.users.email);
+        };
+        getUser(userID);
+    }, [userID]);
     useEffect(() => {
         localStorage.setItem('pay_method', payMethod);
     }, [payMethod]);
@@ -48,7 +59,7 @@ function Payy() {
             let time = new Date();
             axios
                 .post(`${process.env.REACT_APP_BACKEND_URL}/create-order`, {
-                    userId: localStorage.getItem('userId'),
+                    userId: userID,
                     fullName: fullName,
                     address: address,
                     phone: phone,
@@ -59,7 +70,11 @@ function Payy() {
                     totalMoney: handleTotalProduct(productStorage),
                 })
                 .then((res) => {
-                    navigate('/pay/payMethod');
+                    if (payMethod === 'tienmat') {
+                        navigate('/pay/payMethod2');
+                    } else {
+                        navigate('/pay/payMethod');
+                    }
                 })
                 .catch((error) => console.log(error));
         } else {
@@ -183,6 +198,7 @@ function Payy() {
                                     <select className="outline-none" value={payMethod} onChange={handleOptionChange}>
                                         <option value="vietcombank">Vietcombank</option>
                                         <option value="momo">Quét mã Momo</option>
+                                        <option value="tienmat">Tiền mặt</option>
                                     </select>
                                 </div>
                                 <p className="pay-container-right-inner-text">{t('thank')}</p>

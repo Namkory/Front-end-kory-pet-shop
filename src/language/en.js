@@ -53,6 +53,17 @@ const languageEn = {
     apply: 'Apply',
     complete: 'COMPLETE',
     filterbyprice: 'FILTER BY PRICE',
+    shopnow: 'SHOP NOW',
+    freeshipping: 'FREE SHIPPING',
+    allordersover: 'All Order Over',
+    discount: 'DISCOUNT',
+    forfirstorder: 'For First Oder',
+    securepayment: 'SECURE PAYMENT',
+    confirmed: 'Confirmend',
+    awesomegift: 'AWESOME GIFT',
+    everymonth: 'Every Month',
+    addtocart: 'ADD TO CART',
+    productuppercase: 'PRODUCTS',
 };
 
 export default languageEn;

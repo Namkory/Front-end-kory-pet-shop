@@ -4,11 +4,13 @@
         width: 100%;
         .dashboard-content1-left {
             .box {
+                min-width: 290px;
                 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
                 border-radius: 15px;
                 display: flex;
                 align-items: center;
-                padding: 35px;
+                padding: 10px;
+                margin-right: 5px;
                 .icon {
                     width: 20%;
                     height: 100%;

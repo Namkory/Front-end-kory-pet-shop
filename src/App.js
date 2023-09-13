@@ -14,6 +14,7 @@ import ShoppingCart from './pages/shoppingCart/ShoppingCart';
 import ProductDetail from './pages/productDetail/ProductDetail';
 import Payy from './pages/payy/Payy';
 import PayMethod from './pages/payMethod/PayMethod';
+import PayMethod2 from './pages/payMethod2/PayMethod2';
 import Dashboard from './pages/dashboard/Dashboard';
 import ProductsAdmin from './pages/productsAdmin/ProductsAdmin';
 import NewProductAdmin from './pages/newProductAdmin/NewProductAdmin';
@@ -134,6 +135,14 @@ function App() {
                                 element={
                                     <Layout>
                                         <PayMethod />
+                                    </Layout>
+                                }
+                            />
+                            <Route
+                                path="payMethod2"
+                                element={
+                                    <Layout>
+                                        <PayMethod2 />
                                     </Layout>
                                 }
                             />

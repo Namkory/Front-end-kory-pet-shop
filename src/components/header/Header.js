@@ -238,7 +238,11 @@ function Header() {
                                                     );
                                                 })}
                                                 <div className="tippy-bag-total-price">
-                                                    <p>{`Tổng cộng: ${handleTotalProduct(productStorage)} đ`}</p>
+                                                    {/* <p>{`Tổng cộng: ${handleTotalProduct(productStorage)} đ`}</p> */}
+                                                    <p>
+                                                        {t('totallowerCase')}: {handleTotalProduct(productStorage)}{' '}
+                                                        <b>đ</b>
+                                                    </p>
                                                 </div>
                                                 <div className="tippy-bag-viewcard">
                                                     <Link to="/shoppingCart">
